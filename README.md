@@ -1,2 +1,2 @@
 # WEB11
- Review and Info for INHA Univ
+ Store Review and Info for INHA Univ
