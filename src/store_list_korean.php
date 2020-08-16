@@ -14,7 +14,7 @@ $conn = mysqli_connect(
     <link rel="stylesheet" href="../css/topbar.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
-    <title>리뷰 작성</title>
+    <title>목록 - 한식</title>
 </head>
 
 <body>
@@ -28,14 +28,20 @@ $conn = mysqli_connect(
       echo "<h3>{$row['title']} : {$row['description']} <input type='button' value='리뷰보러가기' 
       onClick='location.href=\"store_list_korean.php?id={$row['id']}\"'></h3>";
     }
+    
+    $sql = "SELECT * FROM koreanreview";
+    $result = mysqli_query($conn, $sql);
+    while($row = mysqli_fetch_array($result)){
+      echo "<li>{$row['title']} : {$row['menu']}</li>
+      {$row['description']} by {$row['author']}";
+    }
+  
+    echo "<p><input type='button' value='리뷰쓰러가기' 
+        onClick='location.href=\"write_review.php?id={$_GET['id']}\"'>
+        </p>";
+
     ?>
     </ol>
-    <form action="process_create.php" method="POST">
-        <input type="hidden" name="num" value="<?=$_GET['id']?>">
-        <p><input type="text" name="title" placeholder="title"></p>
-        <p><textarea name="description" cols="30" rows="10" placeholder="description"></textarea></p>
-        <p><input type="submit"></p>
-    </form>
 </body>
 
 </html>
