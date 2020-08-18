@@ -18,6 +18,7 @@ $conn = mysqli_connect(
 </head>
 
 <body>
+    <a href="index.html"><i class="fas fa-arrow-left fa-2x"></i></a>
     <h1>한식</h1>
     <ol>
         <?php 
@@ -39,7 +40,6 @@ $conn = mysqli_connect(
     echo "<p><input type='button' value='리뷰쓰러가기' 
         onClick='location.href=\"write_review.php?id={$_GET['id']}\"'>
         </p>";
-
     ?>
     </ol>
 </body>
