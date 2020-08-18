@@ -1,0 +1,4 @@
+/* 작은 기기들 (태블릿, 768px 이상) */
+@media(min-width: 700px){
+    div{display: none;}
+}   
