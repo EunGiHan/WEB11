@@ -1,3 +1,12 @@
+<?php
+$conn = mysqli_connect(
+  'localhost',
+  'root',
+  '111111',
+  'web11'
+);
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -7,10 +16,10 @@
   <link rel="stylesheet" href="../css/topbar.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
-  <title>홈 화면(서비스 이름으로 수정 필요)</title>
+  <title>INHA-Pot</title>
 </head>
 
-<body style='margin:0;'>
+<body>
   <img class="home_top" src="../assets/home_top_img.jpg">
   <div>
     <h2>메뉴/테마별 식당 목록 보기</h2>
@@ -29,7 +38,12 @@
   </div>
   <div>
     <h2>최근 등록된 리뷰</h2>
-    <div class="box-gray">리뷰</div>
+    <div class="box-gray">
+      <?php
+      $lately_reivew = "SELECT author, created, star, review FROM reviews LEFT JOIN stores ON reviews.store_id = stores.id LIMIT 3"
+      echo "{$row['author']}  {$row['created']}'<br>'{$row['star']}'<br>'{$row['review']}"; 박스에 넣기
+        ?>
+    </div>
   </div>
 </body>
 
