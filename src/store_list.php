@@ -3,7 +3,7 @@ $conn = mysqli_connect(
   'localhost',
   'root',
   '111111',
-  'web11'
+  'inhapot'
 );
 ?>
 <!DOCTYPE html>
@@ -22,12 +22,12 @@ $conn = mysqli_connect(
     <h1>한식</h1>
     <ol>  -나중에는 박스에 넣기
         <?php
-    $sql = "SELECT name, star, review_amount, main_menu, main_menu_price FROM stores";
+    $sql = "SELECT * FROM stores";
     $result = mysqli_query($conn, $sql);
 
     while($row = mysqli_fetch_array($result)){
       echo "{$row['name']}, {$row['star']}, {$row['review_amount']}, {$row['main_menu']}, {$row['main_menu_price']}";
-    }
+    }?>
     </ol>
 </body>
 

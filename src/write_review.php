@@ -3,7 +3,7 @@ $conn = mysqli_connect(
   'localhost',
   'root',
   '111111',
-  'web11'
+  'inhapot'
 );
 ?>
 <!DOCTYPE html>
