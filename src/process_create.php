@@ -1,10 +1,10 @@
 <?php
 $conn = mysqli_connect(
-    'localhost',
-    'root',
-    '111111',
-    'inhapot'
-  );
+  'localhost',
+  'inhapot',
+  'inha8302#11',
+  'inhapot'
+);
 
   echo $_REQUEST['store_id'];  --식당 아이디로 바꾸기
 

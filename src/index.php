@@ -1,8 +1,8 @@
 <?php
 $conn = mysqli_connect(
   'localhost',
-  'root',
-  '111111',
+  'inhapot',
+  'inha8302#11',
   'inhapot'
 );
 ?>
@@ -24,18 +24,27 @@ $conn = mysqli_connect(
     <div class="banner">
         INHA-POT
     </div>
+    <div class="login_box">
+        <form action="./src/login_ok.php">
+            <p>ID: <input type="text" name="userid"></p>
+            <p>Password: <input type="password" name="userpw"></p>
+            <button type="submit" id="btn">로그인</button>
+            <a href="/member/member.php">회원가입 하러가기</a>
+        </form>
+    </div>
     <div class="icon_box">
       <?php
-      echo "<a href=\"store_list.php?id=1\"><i class=\"fas fa-pepper-hot\">한식</i></a>
-      <a href=\"store_list.php?id=2\"><i class=\"fas fa-fish\">일식</i></a>
-      <a href=\"store_list?id=3\"><i class=\"fas fa-egg\">중식</i></a>
-      <a href=\"store_list?id=4\"><i class=\"fas fa-drumstick-bite\">양식</i></a>
-      <a href=\"store_list?id=5\"><i class=\"fas fa-cookie-bite\">분식</i></a>
-      <a href=\"store_list?id=6\"><i class=\"fas fa-coffee\">카페</i></a>
-      <a href=\"store_list?id=7\"><i class=\"fas fa-shipping-fast\">takeout</i></a>
-      <a href=\"store_list?id=8\"><i class=\"fas fa-child\">혼밥</i></a>
-      <a href=\"store_list?id=9\"><i class=\"fas fa-clock\">24시간</i></a>
-      <a href=\"store_list?id=10\"><i class=\"fas fa-utensils\">etc</i></a>";
+      echo "<a href=\"./src/store_list.php?id=1\"><i class=\"fas fa-pepper-hot\">한식</i></a>
+      <a href=\"./src/store_list.php?id=2\"><i class=\"fas fa-fish\">일식</i></a>
+      <a href=\"./src/store_list.php?id=3\"><i class=\"fas fa-egg\">중식</i></a>
+      <a href=\"./src/store_list.php?id=4\"><i class=\"fas fa-drumstick-bite\">양식</i></a>
+      <a href=\"./src/store_list.php?id=5\"><i class=\"fas fa-cookie-bite\">분식</i></a>
+      <a href=\"./src/store_list.php?id=6\"><i class=\"fas fa-utensils\">그 외</i></a>
+      <a href=\"./src/store_list.php?id=7\"><i class=\"fas fa-coffee\">카페</i></a>
+      <a href=\"./src/store_list.php?id=8\"><i class=\"fas fa-shipping-fast\">테이크아웃</i></a>
+      <a href=\"./src/store_list.php?id=9\"><i class=\"fas fa-child\">혼밥</i></a>
+      <a href=\"./src/store_list.php?id=10\"><i class=\"fas fa-clock\">24시간</i></a>
+      ";
 
       ?>
     </div>

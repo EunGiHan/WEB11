@@ -1,8 +1,8 @@
 <?php
 $conn = mysqli_connect(
   'localhost',
-  'root',
-  '111111',
+  'inhapot',
+  'inha8302#11',
   'inhapot'
 );
 ?>
