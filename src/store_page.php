@@ -6,8 +6,15 @@ $conn = mysqli_connect(
   'inhapot'
 );
 
+$sql = "SELECT * FROM stores WHERE id={$_GET['store_id']}";
+$result = mysqli_query($conn, $sql);
 
-$store_review = "SELECT author, created, star, review FROM reviews WHERE store_id=GET으로 URL에 있는 id";
+while($row = mysqli_fetch_array($result)){
+  $name = $row['name'];
+  $star = $row['star'];
+  $review_amount = $row['review_amount'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -18,21 +25,21 @@ $store_review = "SELECT author, created, star, review FROM reviews WHERE store_i
   <link rel="stylesheet" href="../css/topbar.css">
   <link rel="stylesheet" href="../css/responsive.css">
   <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
-  <title><?php 식당 이름 받아오기 ?></title>
+  <title><?=$name?></title>
 </head>
 
 <body>
-    <h1>식당이름(PHP로 넣기)</h1>
-    별점(리뷰수)
+    <h1><?=$name?></h1>
+    <?php echo "{$star}({$review_amount})" //star은 나중에 별 개수로 바꾸어놓기?>
     <div>
       정보 탭
     </div>
     <div>
       <?php
-      $result = mysqli_query($conn, $store_review);
-
+      $sql = "SELECT * FROM reviews WHERE store_id={$_GET['store_id']}";
+      $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
-        echo "{$row['author']}  {$row['created']}'<br>'{$row['star']}'<br>'{$row['review']}"; 여기 박스 안에 넣는 걸로 바꾸기
+        echo "{$row['author']}  {$row['created']}'<br>'{$row['star']}'<br>'{$row['review']}";
       }
        ?>
     </div>

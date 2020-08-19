@@ -24,7 +24,7 @@ $row = mysqli_fetch_array($result);
 <body>
     <a href="../index.php"><i class="fas fa-arrow-left fa-2x"></i></a>
     <h1><?="{$row['category']}"?></h1>
-    <ol>  -나중에는 박스에 넣기
+    <ol>  -나중에는 박스에 넣기 / 링크 주소 id를 store_id로 해야 하는데?
       <?php
         $sql = "SELECT * FROM stores WHERE category={$_GET['id']}";
         $result = mysqli_query($conn, $sql);
