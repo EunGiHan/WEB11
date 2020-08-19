@@ -3,8 +3,18 @@ $conn = mysqli_connect(
   'localhost',
   'root',
   '111111',
-  'web11'
+  'inhapot'
 );
+
+$sql = "SELECT * FROM categories";
+$result = mysqli_query($conn, $sql);
+$list = '';
+while($row = mysqli_fetch_array($result)) {
+  $list = $list."<a href=\"store_list.php?id={$row['id']}\"><i class=\"fas fa-pepper-hot\">{$row['category']}</i></a>";
+  // 각 카테고리 맞게 아이콘 수정 필요
+}
+$sql2 = "SELECT * FROM reviews LEFT JOIN stores ON reviews.store_id = stores.id ORDER BY created DESC limit 3";
+$result2 = mysqli_query($conn, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -12,38 +22,64 @@ $conn = mysqli_connect(
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../css/store_icon_box.css">
-  <link rel="stylesheet" href="../css/topbar.css">
-  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="homepage.css">
+  <link rel="stylesheet" href="responsive.css">
   <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
   <title>INHA-Pot</title>
 </head>
 
 <body>
-  <img class="home_top" src="../assets/home_top_img.jpg">
-  <div>
-    <h2>메뉴/테마별 식당 목록 보기</h2>
-    <div class="box-gray">
-      <a href="store_list_korean.php"><span>한식</span></a>
-      <a href="write_refiew.php?id=2"><span>중식</span></a>
-      <a href="write_refiew.php?id=3"><span>일식</span></a>
-      <a href="write_refiew.php?id=4"><span>양식</span></a>
-      <a href="write_refiew.php"><i class="fas fa-pizza-slice fa-2x"></i></a>
-      <a href="write_refiew.php"><i class="fas fa-drumstick-bite fa-2x"></i></a>
-      <a href="write_refiew.php"><i class="fas fa-hamburger fa-2x"></i></a>
-      <a href="write_refiew.php"><i class="fas fa-cookie-bite fa-2x"></i></a>
-      <a href="write_refiew.php"><i class="fas fa-mug-hot fa-2x"></i></a>
-      <a href="write_refiew.php"><i class="fas fa-beer fa-2x"></i></a>
+  <div class="container">
+    <div class="banner">
+        INHA-POT
     </div>
-  </div>
-  <div>
-    <h2>최근 등록된 리뷰</h2>
-    <div class="box-gray">
-      <?php
-      $lately_reivew = "SELECT author, created, star, review FROM reviews LEFT JOIN stores ON reviews.store_id = stores.id LIMIT 3"
-      echo "{$row['author']}  {$row['created']}'<br>'{$row['star']}'<br>'{$row['review']}"; 박스에 넣기
-        ?>
+    <div class="icon_box">
+      <?=$list?>
+      <!--<a href="store_list_korean.html"><i class="fas fa-pepper-hot">한식</i></a>
+      <a href="store_list_japanese.html"><i class="fas fa-fish">일식</i></a>
+      <a href="store_list_chinese.html"><i class="fas fa-egg">중식</i></a>
+      <a href="store_list_western.html"><i class="fas fa-drumstick-bite">양식</i></a>
+      <a href="store_list_bunsik.html"><i class="fas fa-cookie-bite">분식</i></a>
+
+      <a href="store_list_cafe.html"><i class="fas fa-coffee">카페</i></a>
+      <a href="store_list_takeout.html"><i class="fas fa-shipping-fast">takeout</i></a>
+      <a href="store_list_honbap.html"><i class="fas fa-child">혼밥</i></a>
+      <a href="store_list_24hours.html"><i class="fas fa-clock">24시간</i></a>
+      <a href="store_list_etc.html"><i class="fas fa-utensils">etc</i></a>-->
     </div>
+
+    <div id="review"><b>최근 등록된 리뷰</b></div>
+    <?php
+    $i = 0;
+    while($i<3){
+      $row = mysqli_fetch_array($result2)
+      // 클래스에 review_box 한 개로 수정하기, 가게의 카테고리 출력, $row['name']해도 출력 잘 되나?
+      $recent_review1 = "<div class=\"reviewbox_1\">
+        <div>{$row['name']}</div>
+        <div class=\"rating\">";
+      $recent_review2 = "<div class=\"date\">{$row['created']}</div>
+            <div class=\"text\">{$row['review']}</div>
+            </div>
+          </div>";
+      echo $recent_review1;
+      $stars = $row['star'];
+      $shine_star="<span class=\"fa fa-star checked\"></span>";
+      $dead_star="<span class=\"fa fa-star\"></span>"
+      for($i=0;$i<5;$i++){
+        if($stars!=0){
+          //echo "<span class=\"fa fa-star checked\"></span>";
+          echo $shine_star;
+          $stars = $stars - 1;
+        } else{
+          echo $dead_star;
+          //echo "<span class=\"fa fa-star\"></span>";
+        }
+      }
+      echo $recent_review2;
+      $i = $i + 1;
+    }
+     ?>
   </div>
 </body>
 
