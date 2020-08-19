@@ -23,7 +23,7 @@ $conn = mysqli_connect(
     <p>별점을 선택하세요.</p>
     <p>
       <form action="process_create.php" method="POST">
-          <input type="hidden" name="num" value="<?=$_GET['store_id']?>">  --여기 id값을 식당 아이디로?URL파라미터인데....
+          <input type="hidden" name="num" value="<?=$_GET['store_id']?>">  --여기 id값을 식당 아이디로?URL파라미터 GET으로
           <p><textarea name="review" cols="30" rows="10" placeholder="리뷰를 입력하세요"></textarea></p>
           <p><input type="submit" name="리뷰 등록"></p>
       </form>

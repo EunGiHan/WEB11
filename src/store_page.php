@@ -3,11 +3,11 @@ $conn = mysqli_connect(
   'localhost',
   'root',
   '111111',
-  'web11'
+  'inhapot'
 );
 
 
-$store_review = "SELECT author, created, star, review FROM reviews WHERE store_id=URL에 있는 id";
+$store_review = "SELECT author, created, star, review FROM reviews WHERE store_id=GET으로 URL에 있는 id";
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@ $store_review = "SELECT author, created, star, review FROM reviews WHERE store_i
 </head>
 
 <body>
-    <h1>식당이름(PHP로 넣기/해당 페이지에서 연결될 때 계속 설정 가져가는 법?)</h1>
+    <h1>식당이름(PHP로 넣기)</h1>
     별점(리뷰수)
     <div>
       정보 탭

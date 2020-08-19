@@ -14,7 +14,7 @@ $conn = mysqli_connect(
     <link rel="stylesheet" href="../css/topbar.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
-    <title>목록 - 한식</title>  타이틀도 php에서 category로 가져오기
+    <title>목록 - 한식</title>  타이틀도 php에서 category로 가져오기 GET으로
 </head>
 
 <body>

@@ -3,7 +3,7 @@ $conn = mysqli_connect(
     'localhost',
     'root',
     '111111',
-    'web11'
+    'inhapot'
   );
 
   echo $_REQUEST['store_id'];  --식당 아이디로 바꾸기
