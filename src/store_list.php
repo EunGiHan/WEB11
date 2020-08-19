@@ -14,11 +14,11 @@ $conn = mysqli_connect(
     <link rel="stylesheet" href="../css/topbar.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
-    <title>목록 - 한식</title>  타이틀도 php에서 category로 가져오기 GET으로
+    <title><?=$_GET['id']?></title>  타이틀도 php에서 category로 가져오기 GET으로
 </head>
 
 <body>
-    <a href="index.html"><i class="fas fa-arrow-left fa-2x"></i></a>
+    <a href="index.php"><i class="fas fa-arrow-left fa-2x"></i></a>
     <h1>한식</h1>
     <ol>  -나중에는 박스에 넣기
         <?php
