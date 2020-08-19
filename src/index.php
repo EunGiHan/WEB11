@@ -25,7 +25,7 @@ $conn = mysqli_connect(
         INHA-POT
     </div>
     <div class="login_box">
-        <form action="./src/login_ok.php">
+        <form action="./src/login_ok.php" method="POST">
             <p>ID: <input type="text" name="userid"></p>
             <p>Password: <input type="password" name="userpw"></p>
             <button type="submit" id="btn">로그인</button>
