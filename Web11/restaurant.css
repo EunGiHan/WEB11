@@ -1,0 +1,53 @@
+.cotainer{
+    width:100%; height: 640px;
+    margin:auto;
+    
+}
+.btn1,#show,.address,.time,#plus{
+    float:right;
+}
+.title{
+    text-align:center;
+}
+b{
+    font-size:40px;
+}
+.checked {
+    color: orange;
+}
+table{
+    width:100%; height: 20px;
+}
+td{
+    border:1px solid gainsboro;
+    background-color: gainsboro;
+    text-align:center;
+}
+#share{
+    width:50%;
+}
+.information,.menubox{
+    border-bottom:1px solid black;
+}
+#show,#show2{
+    text-decoration: none;
+}
+#hide1{
+    font-size:13px;
+}
+.text1,.text3{
+    border-top:1px solid salmon;
+    border-bottom:1px solid salmon;
+}
+.text2{
+    height:55px;
+}
+.text4{
+    border-bottom:1px solid salmon;
+}
+.menu,#show2,#hide2{
+    margin:auto;
+    text-align:center;
+}
+
+

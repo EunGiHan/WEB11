@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>식당</title>
+        <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="restaurant.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="responsive.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="top">
+                <input type="button" class="btn" onclick="location.href='javascript:history.back()';" value="back">
+                <input type="button" class="btn1" onclick="location.href='index.html';" value="home" >
+            </div>
+            <div class="title">
+                <b>식당 이름</b><br>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                (3)
+            </div>
+            <table>
+                <td id="share">공유</td>
+                <td>리뷰 작성하기</td>
+            </table>
+            <div class="information">
+                <strong>정보</strong>
+                <a href=#none id="show" onclick="if(hide1.style.display=='none') {hide1.style.display='';show.innerText='▲'} else {hide1.style.display='none';show.innerText='▶'}">▶</a>
+                <div id="hide1" style="display: none">
+                    <div class="text1">주소<div class="address">인천광역시 미추홀구 인하로 64</div></div>
+                    <div class="text2">영업시간<div class="time">평일 10:00~21:00<br>주말 12:00~19:00<br>일요일은 정기 휴무</div></div>
+                    <div class="text3">전화번호<div id="plus">사용자 추가</div></div>
+                    <div class="text4">웹사이트<div id="plus">사용자 추가</div></div>
+                    <div>정보 수정 제안하기</div>
+                </div>
+            </div>
+            <div class="menubox">
+                <strong>메뉴</strong><br>
+                <div class="menu">
+                    메뉴 이름---------------------------------------------------7900원<br>
+                    메뉴 이름---------------------------------------------------7900원<br>
+                    메뉴 이름---------------------------------------------------7900원<br>
+                    메뉴 이름---------------------------------------------------7900원<br>
+                    메뉴 이름---------------------------------------------------7900원
+                </div>
+                <a href=#none id="show2" onclick="if(hide2.style.display=='none') {hide2.style.display='';show2.innerText='닫기'} else {hide2.style.display='none';show2.innerText='더보기'}">더보기</a>
+                <div id="hide2" style="display: none">
+                    메뉴 이름---------------------------------------------------7900원<br>
+                    메뉴 이름---------------------------------------------------7900원<br>
+                    메뉴 이름---------------------------------------------------7900원<br>
+                    정보 수정 제안하기
+                </div>
+            </div>
+            <div class="reviewbox">
+                <strong>리뷰 (3건)</strong>
+                
+            </div>
+        </div>
+    </body>
+</html>
