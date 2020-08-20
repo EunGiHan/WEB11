@@ -6,13 +6,16 @@ $conn = mysqli_connect(
   'inhapot'
 );
 
+$article = array(
+  'id' = $_POST['id'],
+  'star' => $_POST['star'],
+  'review' => htmlspecialchars($_POST['review']),
+  'store_id' => $_POST['store_id']
+);
+
 $sql = "
-    INSERT INTO reviews
-    (store_id, author, created, star, review)
-    VALUES('{$_POST['store_id']}', 'author(로그인 따라 수정 필요)', NOW(), {$_POST['star']}, '{$_POST['review']}');"; // POST이렇게 받지 말고 별도의 배열 선언 하기
+    UPDATE reviews SET created = NOW(), star = '{$article['star']}', review = '{$article['review']}' WHERE id = {$article['id']}";
 $result = mysqli_query($conn, $sql);
-$sql2 = "UPDATE stores SET review = review + 1 WHERE id=$_POST['store_id'] "; // 리뷰 수 갱신
-mysqli_query($conn, $sql2);
 
 //별점 점수 평균 내서 계산, 1점 단위로
 $sql3 = "SELECT star FROM reviews WHERE store_id=$_POST['store_id']";
@@ -27,11 +30,10 @@ $star_avg = settype($star_sum/$review_amount, "integer"); // 여기 맞나 확�
 $sql4 = "UPDATE stores SET star = $star_avg WHERE id=$_POST['store_id'] ";
 mysqli_query($conn, $sql4);
 
-
 if($result === false){
-  echo "리뷰를 남기는 과정에서 문제가 생겼습니다. 관리자에게 문의해주세요";
+  echo "리뷰를 수정하는 과정에서 문제가 생겼습니다. 관리자에게 문의해주세요";
   error_log(mysqli_error($conn));
 }else{
-  header('Location: store_list?id='."{$_POST['store_id']}");
+  header('Location: store_page?store_id='."{$article['store_id']}");
 }
 ?>
