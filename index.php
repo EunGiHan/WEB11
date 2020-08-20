@@ -58,7 +58,7 @@ $conn = mysqli_connect(
               $top = "<div class=\"reviewbox\">";
               echo $top;
 
-              $name = "<div>{$row['name']}</div>";
+              $name = "<div><a href=\"store_page.php?store_id={$row['reviews.store_id']}\">"."{$row['name']}"."</a></div>";
               echo $name;
 
               $rating = "<div class=\"rating\">";

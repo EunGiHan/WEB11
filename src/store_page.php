@@ -60,7 +60,7 @@ while($row = mysqli_fetch_array($result)){
               <div class="text2">영업시간<div class="time">평일 10:00~21:00<br>주말 12:00~19:00<br>일요일은 정기 휴무</div></div>
               <div class="text3">전화번호<div id="plus">사용자 추가</div></div>
               <div class="text4">웹사이트<div id="plus">사용자 추가</div></div>
-              <div>정보 수정 제안하기</div>
+              <div><a href="update_info.php?store_id=<?=$_GET['store_id']?>">정보 수정 제안하기</a></div>
           </div>
       </div>
       <div class="menubox">

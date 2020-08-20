@@ -5,6 +5,13 @@ $conn = mysqli_connect(
   'inha8302#11',
   'inhapot'
 );
+
+$sql = "SELECT * FROM stores WHERE id={$_GET['store_id']}";
+$result = mysqli_query($conn, $sql);
+while($row=mysqli_fetch_array($result)){
+  $name = $row['name'];
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,13 +25,14 @@ $conn = mysqli_connect(
 </head>
 
 <body>
-    <h1>식당이름(PHP로 넣기/해당 페이지에서 연결될 때 계속 설정 가져가는 법?)</h1>
-    <p>별점 선택</p>
+    <h1><?=$name?></h1>
+    <p>별점 선택(별로 라디오버튼 / php로 $star 변수 만들어 넣기)</p>
     <p>별점을 선택하세요.</p>
     <p>
       <form action="process_create.php" method="POST">
-          <input type="hidden" name="num" value="<?=$_GET['store_id']?>">  --여기 id값을 식당 아이디로?URL파라미터 GET으로
-          <p><textarea name="review" cols="30" rows="10" placeholder="리뷰를 입력하세요"></textarea></p>
+          <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
+          <input type="hidden" name="star" value="<?=$row['star']?>">
+          <p><textarea name="review" cols="30" rows="10" placeholder="리뷰를 입력하세요."></textarea></p>
           <p><input type="submit" name="리뷰 등록"></p>
       </form>
     </p>
