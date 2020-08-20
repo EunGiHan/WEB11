@@ -82,9 +82,33 @@ while($row = mysqli_fetch_array($result)){
           </div>
       </div>
       <div class="reviewbox">
-          <strong>리뷰 (<?= $review_amount ?>건)</strong>
+      <?php
+      echo "<strong>리뷰 ("."{$review_amount}"."건)</strong>";
+      $sql = "SELECT * FROM reviews WHERE store_id={$_GET['store_id']}";
+      $result = mysqli_query($conn, $sql);
+      while($row = mysqli_fetch_array($result)){
+        $class_review = "<div class=\"review\">";
+        echo $class_review;
 
-      </div>
+        $class_rating = "<div class=\"rating\">";
+        echo $class_rating;
+        echo "{$row['author']}"."<br>";
+        $star = $row['star'];
+        for($i=5; $i>0; $i--){
+          if($star > 0){
+            echo "<span class=\"fa fa-star checked\"></span>";
+            $star = $star - 1;
+          } else{
+            echo "<span class=\"fa fa-star\"></span>";
+          }
+        }
+
+        echo "</div>";
+        echo "<div class=\"comment\">"."{$row['review']}"."</div>";
+        }
+         ?>
+       </div>
+     </div>
   </div>
 </body>
 
