@@ -5,6 +5,7 @@ $conn = mysqli_connect(
   'inha8302#11',
   'inhapot'
 );
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -24,14 +25,41 @@ $conn = mysqli_connect(
         <div class="banner">
             INHA-POT
         </div>
-        <div class="login_box">
+
+        <?php 
+        if(isset($_SESSION['userid'])){
+            echo "
+            <div>
+            <p>{$_SESSION['name']} 님 환영합니다.</p>
+            <p><a href='./src/logout.php'>로그아웃</a></p>
+            </div>
+            ";
+        }else {
+          echo '
+          <div class="login_box">
             <form action="./src/login_ok.php" method="POST">
-                <p>ID: <input type="text" name="userid"></p>
-                <p>Password: <input type="password" name="userpw"></p>
-                <button type="submit" id="btn">로그인</button>
-                <a href="./src/member.php">회원가입 하러가기</a>
+                <table>
+                    <tr>
+                        <td>ID</td>
+                        <td><input type="text" name="userid"></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td><input type="password" name="userpw"></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit" id="btn">로그인</button></td>
+                    </tr>
+                    <tr>
+                        <td><a href="./src/member.php">회원가입 하러가기</a></td>
+                    </tr>
+                </table>
             </form>
         </div>
+          ';
+        }
+        ?>
+
         <div class="icon_box">
             <?php
       echo "<a href=\"./src/store_list.php?id=1\"><i class=\"fas fa-pepper-hot\">한식</i></a>
@@ -51,7 +79,7 @@ $conn = mysqli_connect(
 
         <div id="review"><b>최근 등록된 리뷰</b></div>
 
-          <?php
+        <?php
             $sql = "SELECT * FROM reviews LEFT JOIN stores ON reviews.store_id = stores.id ORDER BY created DESC limit 3";
             $result = mysqli_query($conn, $sql);
             while($row = mysqli_fetch_array($result)){
@@ -82,8 +110,8 @@ $conn = mysqli_connect(
 
 
 
-            </div>
-        </div>
+    </div>
+    </div>
     </div>
 </body>
 

@@ -13,9 +13,10 @@ $conn = mysqli_connect(
         $id = $_POST['userid'];
         $pw = password_hash($_POST['userpw'], PASSWORD_DEFAULT);
         $name = $_POST['name'];
+        $email = $_POST['email'].'@'.$_POST['emailaddress'];
     
-        $sql = "INSERT into member(userid,userpw,name)
-                VALUES('".$id."','".$pw."','".$name."')";
+        $sql = "INSERT into member(userid,userpw,name,email)
+                VALUES('".$id."','".$pw."','".$name."','".$email."')";
 
                 
         if(mysqli_query($conn, $sql)){ /* 회원가입이 성공한다면 */

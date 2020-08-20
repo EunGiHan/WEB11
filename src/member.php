@@ -1,5 +1,3 @@
-<?php 
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +22,17 @@
             <tr>
                 <td>Password</td>
                 <td><input type="password" name="userpw" placeholder="비밀번호"></td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td><input type="text" name="email" placeholder="이메일">@
+                    <select name="emailaddress">
+                        <option value="naver.com">naver.com</option>
+                        <option value="gmail.com">gmail.com</option>
+                        <option value="daum.net">daum.net</option>
+                        <option value="hanmail.com">hanmail.com</option>
+                    </select>
+                </td>
             </tr>
         </table>
         <input type="submit" value="회원가입">
