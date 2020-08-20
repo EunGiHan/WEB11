@@ -13,8 +13,8 @@ $conn = mysqli_connect(
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/homepage.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="./css/homepage.css">
+    <link rel="stylesheet" href="./css/responsive.css">
     <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
     <title>INHA-Pot</title>
 </head>
@@ -50,29 +50,38 @@ $conn = mysqli_connect(
         </div>
 
         <div id="review"><b>최근 등록된 리뷰</b></div>
-        <div class="reviewbox_1">
-            <?php
-      $sql = "SELECT * FROM reviews LEFT JOIN stores ON reviews.store_id = stores.id ORDER BY created DESC limit 3";
-      $result = mysqli_query($conn, $sql);
-      while($row = mysqli_fetch_array($result)){
-        $name = "<div>{$row['name']}</div>";
-        echo $name;
-       ?>
-            <div class="rating">
-                <?php
-        $star = $row['star'];
-        for($i=5; $i>0; $i--){
-          if($star > 0){
-            echo "<span class=\"fa fa-star checked\"></span>";
-            $star = $star - 1;
-          } else{
-            echo "<span class=\"fa fa-star\"></span>";
-          }
-        }
-         ?>
 
-                <div class="date"><?php echo "{$row['created']}";?></div>
-                <div class="text"><?php echo "{$row['review']}";}?></div>
+          <?php
+            $sql = "SELECT * FROM reviews LEFT JOIN stores ON reviews.store_id = stores.id ORDER BY created DESC limit 3";
+            $result = mysqli_query($conn, $sql);
+            while($row = mysqli_fetch_array($result)){
+              $top = "<div class=\"reviewbox\">";
+              echo $top;
+
+              $name = "<div>{$row['name']}</div>";
+              echo $name;
+
+              $rating = "<div class=\"rating\">";
+              echo $rating;
+
+              $star = $row['star'];
+              for($i=5; $i>0; $i--){
+                if($star > 0){
+                  echo "<span class=\"fa fa-star checked\"></span>";
+                  $star = $star - 1;
+                } else{
+                  echo "<span class=\"fa fa-star\"></span>";
+                }
+              }
+              $date = "<div class=\"date\">"."{$row['created']}"."</div>";
+              $text = "<div class=\"text\">"."{$row['review']}"."</div>";
+              echo $date;
+              echo $text;
+            }
+            ?>
+
+
+
             </div>
         </div>
     </div>

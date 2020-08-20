@@ -1,69 +1,44 @@
-.container {
-    width: 100%;
-    height: 640px;
-}
 
-.banner {
-    width: 100%;
-    height: 70px;
-    background-color: #fdd835;
-    text-align: center;
+.container{
+  width: 100%; height: 640px;
 }
-
-.icon_box {
-    width: 100%;
-    height: 160px;
-    grid-template-columns: repeat(5, 1fr);
-    display: grid;
-    background-color: #fff9c4;
-    text-align: auto;
-    margin-top: 5px;
+.banner{
+  width:100%; height:70px;
+  background-color: #fdd835;
+  text-align: center;
+  mx-auto;
 }
-
-#review {
-    width: 100%;
-    height: 20px;
+.icon_box{
+  width:100%; height:160px;
+  grid-template-columns: repeat(5, 1fr);
+  display: grid;
+  background-color: #fff9c4 ;
+  text-align: auto;
+  margin-top: 5px;
+}
+#review{
+  width:100%; height: 20px;
 
 }
-
-.reviewbox_1 {
-    width: 100%;
-    height: 150px;
-    background-color: #fff9c4;
-}
-
 .checked {
-    color: orange;
+color: orange;
 }
-
-.date {
-    float: right;
-    font-size: 10px;
+.date{
+  float: right;
+  font-size: 10px;
 }
-
-.text {
-    width: 99%;
-    height: 100px;
-    margin: auto;
-    border: 2px solid black;
+.text{
+  width: 99%; height:100px;
+  margin:auto;
+  border: 2px solid black;
 }
-
-.reviewbox_2 {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 100%;
-    height: 250px;
-    background-color: #fff9c4;
-
+.reviewbox{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%; height:150px;
+  background-color: #fff9c4 ;
 }
-
-.text2 {
-    width: 250px;
-    height: 200px;
-    border: 2px solid black;
-}
-
-.box {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.text2{
+  width: 250px; height:200px;
+  border: 2px solid black;
 }
