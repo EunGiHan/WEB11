@@ -83,7 +83,18 @@ while($row = mysqli_fetch_array($result)){
       </div>
       <div class="reviewbox">
           <strong>리뷰 (<?= $review_amount ?>건)</strong>
-
+          <div class="review">
+                    <div class="rating">
+                        작성자<br>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                    <div class="comment">
+                        맛있어요 사케동 맛있어요.
+                    </div>
       </div>
   </div>
 </body>
