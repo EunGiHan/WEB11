@@ -28,7 +28,7 @@ $row = mysqli_fetch_array($result);
   <div class="container">
       <div class="top">
           <input type="button" class="btn" onclick="location.href='javascript:history.back()';" value="back">
-          <input type="button" class="btn1" onclick="location.href='../index.html';" value="home" >
+          <input type="button" class="btn1" onclick="location.href='../index.php';" value="home" >
       </div>
       <div class="title">
           <strong><?="{$row['category']}"?></strong>
@@ -54,7 +54,7 @@ $row = mysqli_fetch_array($result);
 
         $name_menu = "
         <div>
-            <b>"."{$row['name']}"."</b><br>
+            <b><a href=\"store_page.php?store_id={$row['id']}\">"."{$row['name']}"."</a></b><br>
             <div class=\"menu\">"."{$row['main_menu']}"."</div>
         </div>
         ";
