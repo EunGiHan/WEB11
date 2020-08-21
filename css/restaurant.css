@@ -53,10 +53,16 @@ td{
 }.review{
     width: 100%; height: 110px;
     background-color: gainsboro;
-    display:grid;
-    grid-template-columns: 1fr 3fr;
+    /*display:grid;
+    grid-template-columns: repeat(5, 1fr); (이전에는 1fr 3fr)*/
 }
+/*.rating{
+  grid-column: 1/4;
+  grid-row: 1;
+}*/
 .comment{
+    /*grid-column: 3/4;
+    grid-row: 1;*/
     border-left:1px solid black;
 }
 strong{

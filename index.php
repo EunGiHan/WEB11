@@ -26,7 +26,7 @@ session_start();
             INHA-POT
         </div>
 
-        <?php 
+        <?php
         if(isset($_SESSION['userid'])){
             echo "
             <div>
@@ -86,7 +86,7 @@ session_start();
               $top = "<div class=\"reviewbox\">";
               echo $top;
 
-              $name = "<div><a href=\"store_page.php?store_id={$row['reviews.store_id']}\">"."{$row['name']}"."</a></div>";
+              $name = "<div><a href=\"./src/store_page.php?store_id={$row['store_id']}\">"."{$row['name']}"."</a></div>";
               echo $name;
 
               $rating = "<div class=\"rating\">";

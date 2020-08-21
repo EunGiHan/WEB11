@@ -31,7 +31,7 @@ while($row=mysqli_fetch_array($result)){
     <p>
       <form action="process_create.php" method="POST">
           <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
-          <input type="hidden" name="star" value="<?=$row['star']?>">
+          <!--<input type="hidden" name="star" value="<$row['star']?>">-->
           <p><textarea name="review" cols="30" rows="10" placeholder="리뷰를 입력하세요."></textarea></p>
           <p><input type="submit" name="리뷰 등록"></p>
       </form>

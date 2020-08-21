@@ -13,6 +13,9 @@ while($row = mysqli_fetch_array($result)){
   $name = $row['name'];
   $star = $row['star'];
   $review_amount = $row['review_amount'];
+  $address = nl2br($row['address']); // 제대로 잘 되나 확인
+  $hour = nl2br($row['hour']);// 제대로 잘 되나 확인
+  $tel = $row['tel'];
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +48,7 @@ while($row = mysqli_fetch_array($result)){
               }
             }
             echo "($review_amount)";
-          }
+
            ?>
       </div>
       <table>
@@ -56,11 +59,13 @@ while($row = mysqli_fetch_array($result)){
           <strong>정보</strong>
           <a href=#none id="show" onclick="if(hide1.style.display=='none') {hide1.style.display='';show.innerText='▲'} else {hide1.style.display='none';show.innerText='▶'}">▶</a>
           <div id="hide1" style="display: none">
-              <div class="text1">주소<div class="address">인천광역시 미추홀구 인하로 64</div></div>
-              <div class="text2">영업시간<div class="time">평일 10:00~21:00<br>주말 12:00~19:00<br>일요일은 정기 휴무</div></div>
-              <div class="text3">전화번호<div id="plus">사용자 추가</div></div>
-              <div class="text4">웹사이트<div id="plus">사용자 추가</div></div>
-              <div><a href="update_info.php?store_id=<?=$_GET['store_id']?>">정보 수정 제안하기</a></div>
+            <?php
+              echo "<div class=\"text1\">주소<div class=\"address\">"."{$row['address']}"."</div></div>";
+              echo "<div class=\"text2\">영업시간<div class=\"time\">"."{$row['hour']}"."</div></div>";
+              echo "<div class=\"text3\">전화번호<div id=\"plus\">"."{$row['tel']}"."</div></div>";
+            }
+             ?>
+            <div><a href="update_info.php?store_id=<?=$_GET['store_id']?>">정보 수정 제안하기</a></div>
           </div>
       </div>
       <div class="menubox">
@@ -69,16 +74,25 @@ while($row = mysqli_fetch_array($result)){
             <?php
             $sql = "SELECT main_menu, main_menu_price FROM stores WHERE id={$_GET['store_id']}";
             $result = mysqli_query($conn, $sql);
-
-            while($row = mysqli_fetch_array($result)){
-              echo "{$row['main_menu']}"."-------------------------"."{$row['main_menu_price']}"."원<br>";
-            }
+            $row = mysqli_fetch_array($result);
+            echo "[대표 메뉴]    "."{$row['main_menu']}"."  ---  "."{$row['main_menu_price']}"."원<br>";
              ?>
           </div>
-          <div id="show2"><a href=#none id="show2" onclick="if(hide2.style.display=='none') {hide2.style.display='';show2.innerText='닫기'} else {hide2.style.display='none';show2.innerText='더보기'}">더보기</a></div>
+          <div id="show2">
+            <a href=#none id="show2"
+              onclick="if(hide2.style.display=='none') {hide2.style.display='';show2.innerText='접기'} else {hide2.style.display='none';show2.innerText='다른 메뉴 더보기'}">
+              다른 메뉴 더보기
+            </a>
+          </div>
           <div id="hide2" style="display: none">
-              나머지 메뉴 보이기!!<br>
-              <a href="update_store_info.php?store_id=<?=$_GET['store_id']?>">정보 수정 제안하기</a>
+              <?php
+              $sql = "SELECT * FROM menus WHERE store_id={$_GET['store_id']} ORDER BY price";
+              $result = mysqli_query($conn, $sql);
+              while($row = mysqli_fetch_array($result)){
+                echo "{$row['menu']}"."---"."{$row['price']}"."원<br>";
+              }
+              ?>
+              <a href="update_store_menu.php?store_id=<?=$_GET['store_id']?>">메뉴 정보 수정 제안하기</a>
           </div>
       </div>
       <div class="reviewbox">
@@ -104,10 +118,10 @@ while($row = mysqli_fetch_array($result)){
         }
 
         echo "</div>";
-        echo "<div class=\"comment\">"."{$row['review']}"."</div>";
+        echo "<div class=\"comment\">"."{$row['review']}"."</div></div>";
         }
          ?>
-       </div>
+
      </div>
   </div>
 </body>
