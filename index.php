@@ -1,11 +1,11 @@
 <?php
+session_start();
 $conn = mysqli_connect(
   'localhost',
   'inhapot',
   'inha8302#11',
   'inhapot'
 );
-session_start();
 ?>
 
 <!DOCTYPE html>
