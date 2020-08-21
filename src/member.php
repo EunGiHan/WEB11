@@ -5,6 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INHA-Pot</title>
+    <script>
+    function checkid() {
+        var userid = document.getElementById("uid").value;
+        if (userid) {
+            url = "check.php?userid=" + userid;
+            window.open(url, "chkid", "width=300,height=100");
+        } else {
+            alert("아이디를 입력하세요");
+        }
+    }
+    </script>
 </head>
 
 <body>
@@ -17,7 +28,9 @@
             </tr>
             <tr>
                 <td>ID</td>
-                <td><input type="text" name="userid" placeholder="아이디"></td>
+                <td><input type="text" name="userid" placeholder="아이디" id="uid"></td>
+                <td><input type="button" value="중복검사" onclick="checkid();"></td>
+                <td><input type="hidden" value="0" name="chs"></td>
             </tr>
             <tr>
                 <td>Password</td>
