@@ -38,15 +38,12 @@ td{
 #hide1{
     font-size:13px;
 }
-.text1{
+.text1,.text3{
     border-top:1px solid salmon;
     border-bottom:1px solid salmon;
 }
 .text2{
     height:55px;
-}
-.text3{
-    border-bottom:1px solid salmon;
 }
 .menu,#show2,#hide2{
     text-align:center;

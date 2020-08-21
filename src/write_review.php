@@ -19,7 +19,6 @@ $star = 0;
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/review.css">
     <link rel="stylesheet" href="../css/responsive.css">
-    <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
     <title>리뷰 작성</title>
 </head>
 

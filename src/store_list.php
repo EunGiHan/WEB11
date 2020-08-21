@@ -37,8 +37,8 @@ $row = mysqli_fetch_array($result);
               <span class="caret"></span></button>
               <ul class="dropdown-menu">
                 <li><a href="store_list.php?id=<?=$_GET['id']?>&sort=star">별점 높은 순</a></li>
-                <li><a href="store_list.php?sort=review">리뷰 많은 순</a></li>
-                <li><a href="store_list.php?sort=price">대표메뉴 가격 순</a></li>
+                <li><a href="store_list.php?id=<?=$_GET['id']?>&sort=review">리뷰 많은 순</a></li>
+                <li><a href="store_list.php?id=<?=$_GET['id']?>&sort=price">대표메뉴 가격 순</a></li>
               </ul>
           </div>
       </div>
@@ -46,11 +46,11 @@ $row = mysqli_fetch_array($result);
       $sql = "SELECT * FROM stores WHERE category={$_GET['id']}";
       if(isset($_GET['sort'])){
         if($_GET['sort'] == 'star'){
-          $sql = "SELECT * FROM stores WHERE category={$_GET['id']} ORDER BY star";
+          $sql = "SELECT * FROM stores WHERE category={$_GET['id']} ORDER BY star DESC";
         } else if($_GET['sort'] == 'review'){
-          $sql = "SELECT * FROM stores WHERE category={$_GET['id']} ORDER BY review_amount";
-        } else if (condition) {
-          $sql = "SELECT * FROM stores WHERE category={$_GET['id']} ORDER BY main_menu_price";
+          $sql = "SELECT * FROM stores WHERE category={$_GET['id']} ORDER BY review_amount DESC";
+        } else if ($_GET['sort'] == 'price') {
+          $sql = "SELECT * FROM stores WHERE category={$_GET['id']} ORDER BY main_menu_price DESC";
         }
       }
       $result = mysqli_query($conn, $sql);
