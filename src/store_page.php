@@ -13,8 +13,8 @@ while($row = mysqli_fetch_array($result)){
   $name = $row['name'];
   $star = $row['star'];
   $review_amount = $row['review_amount'];
-  $address = nl2br($row['address']); // 제대로 잘 되나 확인
-  $hour = nl2br($row['hour']);// 제대로 잘 되나 확인
+  $address = $row['address']; // 제대로 잘 되나 확인
+  $hour = $row['hour'];// 제대로 잘 되나 확인
   $tel = $row['tel'];
 ?>
 

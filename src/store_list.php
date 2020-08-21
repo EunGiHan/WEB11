@@ -36,14 +36,23 @@ $row = mysqli_fetch_array($result);
               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">정렬
               <span class="caret"></span></button>
               <ul class="dropdown-menu">
-                <li><a href="#">별점 높은 순</a></li>
-                <li><a href="#">리뷰 많은 순</a></li>
-                <li><a href="#">대표메뉴 가격 순</a></li>
+                <li><a href="store_list.php?id=<?=$_GET['id']?>&sort=star">별점 높은 순</a></li>
+                <li><a href="store_list.php?sort=review">리뷰 많은 순</a></li>
+                <li><a href="store_list.php?sort=price">대표메뉴 가격 순</a></li>
               </ul>
           </div>
       </div>
       <?php
       $sql = "SELECT * FROM stores WHERE category={$_GET['id']}";
+      if(isset($_GET['sort'])){
+        if($_GET['sort'] == 'star'){
+          $sql = "SELECT * FROM stores WHERE category={$_GET['id']} ORDER BY star";
+        } else if($_GET['sort'] == 'review'){
+          $sql = "SELECT * FROM stores WHERE category={$_GET['id']} ORDER BY review_amount";
+        } else if (condition) {
+          $sql = "SELECT * FROM stores WHERE category={$_GET['id']} ORDER BY main_menu_price";
+        }
+      }
       $result = mysqli_query($conn, $sql);
 
       while($row = mysqli_fetch_array($result)){
