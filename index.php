@@ -31,13 +31,13 @@ $conn = mysqli_connect(
             echo "
             <div>
             <p>{$_SESSION['name']} 님 환영합니다.</p>
-            <p><a href='./src/logout.php'>로그아웃</a></p>
+            <p><a href='./member/logout.php'>로그아웃</a></p>
             </div>
             ";
         }else {
           echo '
           <div class="login_box">
-            <form action="./src/login_ok.php" method="POST">
+            <form action="./member/login_ok.php" method="POST">
                 <table>
                     <tr>
                         <td>ID</td>
@@ -51,7 +51,7 @@ $conn = mysqli_connect(
                         <td><button type="submit" id="btn">로그인</button></td>
                     </tr>
                     <tr>
-                        <td><a href="./src/member.php">회원가입 하러가기</a></td>
+                        <td><a href="./member/member.php">회원가입 하러가기</a></td>
                     </tr>
                 </table>
             </form>

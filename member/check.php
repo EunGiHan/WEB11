@@ -1,5 +1,5 @@
 <!--<meta charset="utf-8">
-<?/*php
+/*<?php
 	$conn = mysqli_connect(
         'localhost',
         'inhapot',
@@ -17,8 +17,8 @@
         ?>
 <div><?php echo $_GET['userid']; ?>는 중복된아이디입니다.<div>
         <?php
-			}*/
-        ?>
+			}
+        ?>*/
         <button value="닫기" onclick="window.close()">닫기</button>
         <script>
         </script>-->
