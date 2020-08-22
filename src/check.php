@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <?php
 	$conn = mysqli_connect(
         'localhost',
@@ -6,17 +7,15 @@
         'inhapot'
     );
     
-	$uid = $_GET["userid"];
-	$sql = "select * from member where id='".$uid."'";
-	$member = $sql->fetch_array();
-	if($member==0)
+    $sql = "select * from member where id={$_GET['userid']}";
+	if(!$member = mysqli_query($conn, $sql))
 	{
 ?>
-<div><?php echo $uid; ?>는 사용가능한 아이디입니다.</div>
+<div><?php echo $_GET['userid']; ?>는 사용가능한 아이디입니다.</div>
 <?php 
 	}else{
         ?>
-<div><?php echo $uid; ?>중복된아이디입니다.<div>
+<div><?php echo $_GET['userid']; ?>는 중복된아이디입니다.<div>
         <?php
             }
         ?>
