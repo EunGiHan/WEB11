@@ -12,7 +12,11 @@ $sql = "SELECT * FROM stores WHERE id={$_GET['store_id']}";
 $result = mysqli_query($conn, $sql);
 $row=mysqli_fetch_array($result);
 $name = $row['name'];
-$star = 0;
+
+$sql2 = "SELECT review FROM reviews WHERE author={$_SESSION['name']}";
+$result2 = mysqli_query($conn, $sql);
+$row2 = mysqli_fetch_array($result2);
+$review = $row2['review'];
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +61,7 @@ $star = 0;
       <div>
           <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
           <input type="hidden" name="author" value="<?=$_SESSION['name']?>">
-          <p><textarea name="review" rows="10" style="font-size:15pt" placeholder="리뷰를 입력하세요."></textarea></p>
+          <p><textarea name="review" rows="10" style="font-size:15pt" value="<?=$review?>"></textarea></p>
           <p><input type="submit" name="리뷰 등록"></p>
         </form>
       </div>

@@ -83,7 +83,6 @@ $conn = mysqli_connect(
             $sql = "SELECT *, reviews.star as r_star FROM reviews LEFT JOIN stores ON reviews.store_id = stores.id ORDER BY created DESC limit 3";
             $result = mysqli_query($conn, $sql);
             while($row = mysqli_fetch_array($result)){
-              echo $row['r_star'];
               $top = "<div class=\"reviewbox\">";
               echo $top;
 
