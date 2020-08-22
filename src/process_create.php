@@ -1,18 +1,23 @@
 <?php
+session_start();
+
 $conn = mysqli_connect(
   'localhost',
   'inhapot',
   'inha8302#11',
   'inhapot'
 );
+
 $filtered = array(
   'store_id'=>$_POST['store_id'],
-  'author'=>"author",
-  'review'=>mysqli_real_escape_string($conn, $_POST['review'])
+  'author'=>$_POST['author'],
+  'review'=>mysqli_real_escape_string($conn, $_POST['review']),
+  'star'=> $_POST['rating']
 );
+
 $sql1 = "
     INSERT INTO reviews (store_id, author, created, star, review)
-    VALUES('{$filtered['store_id']}', '{$filtered['author']}', NOW(), 3, '{$filtered['review']}')"; // star수정
+    VALUES('{$filtered['store_id']}', '{$filtered['author']}', NOW(), '{$filtered['star']}', '{$filtered['review']}')"; // star수정
 $result1 = mysqli_query($conn, $sql1);
 
 $sql2 = "UPDATE stores SET review_amount = review_amount + 1 WHERE id={$filtered['store_id']}"; // 리뷰 수 갱신
@@ -28,13 +33,11 @@ while($row=mysqli_fetch_array($result3)){
   $review_amount = $review_amount + 1;
 }
 $star_avg = $star_sum/$review_amount;
-settype($star_avg, "integer"); // 여기 맞나 확인
+settype($star_avg, "integer"); // 반올림으로는 어떻게 할까용?
 $sql4 = "UPDATE stores SET star = $star_avg WHERE id={$_POST['store_id']}";
 $result4 = mysqli_query($conn, $sql4);
-
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

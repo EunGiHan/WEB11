@@ -80,9 +80,10 @@ $conn = mysqli_connect(
         <div id="review"><b>최근 등록된 리뷰</b></div>
 
         <?php
-            $sql = "SELECT * FROM reviews LEFT JOIN stores ON reviews.store_id = stores.id ORDER BY created DESC limit 3";
+            $sql = "SELECT *, reviews.star as r_star FROM reviews LEFT JOIN stores ON reviews.store_id = stores.id ORDER BY created DESC limit 3";
             $result = mysqli_query($conn, $sql);
             while($row = mysqli_fetch_array($result)){
+              echo $row['r_star'];
               $top = "<div class=\"reviewbox\">";
               echo $top;
 
@@ -92,7 +93,7 @@ $conn = mysqli_connect(
               $rating = "<div class=\"rating\">";
               echo $rating;
 
-              $star = $row['star'];
+              $star = $row['r_star'];
               for($i=5; $i>0; $i--){
                 if($star > 0){
                   echo "<span class=\"fa fa-star checked\"></span>";
