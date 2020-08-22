@@ -12,17 +12,17 @@ $conn = mysqli_connect(
 
 <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="../font/flaticon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/homepage.css">
     <link rel="stylesheet" href="./css/responsive.css">
-    <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
     <title>INHA-Pot</title>
 </head>
 
 <body>
     <div class="container">
         <div class="banner">
-            INHA-POT
+          <b>INHA-POT</b>
         </div>
         <div class="login_box">
             <form action="./src/login_ok.php" method="POST">
@@ -34,17 +34,17 @@ $conn = mysqli_connect(
         </div>
         <div class="icon_box">
             <?php
-      echo "<a href=\"./src/store_list.php?id=1\"><i class=\"fas fa-pepper-hot\">한식</i></a>
-      <a href=\"./src/store_list.php?id=2\"><i class=\"fas fa-fish\">일식</i></a>
-      <a href=\"./src/store_list.php?id=3\"><i class=\"fas fa-egg\">중식</i></a>
-      <a href=\"./src/store_list.php?id=4\"><i class=\"fas fa-drumstick-bite\">양식</i></a>
-      <a href=\"./src/store_list.php?id=5\"><i class=\"fas fa-cookie-bite\">분식</i></a>
-      <a href=\"./src/store_list.php?id=6\"><i class=\"fas fa-utensils\">그 외</i></a>
-      <a href=\"./src/store_list.php?id=7\"><i class=\"fas fa-coffee\">카페</i></a>
-      <a href=\"./src/store_list.php?id=8\"><i class=\"fas fa-shipping-fast\">테이크아웃</i></a>
-      <a href=\"./src/store_list.php?id=9\"><i class=\"fas fa-child\">혼밥</i></a>
-      <a href=\"./src/store_list.php?id=10\"><i class=\"fas fa-clock\">24시간</i></a>
-      ";
+            echo "<div><a href=\"./src/store_list.php?id=1\"><i class=\"flaticon-bibimbap\"></i></a><br>한식</div>
+            <div><a href=\"./src/store_list.php?id=2\"><i class=\"flaticon-tuna\"></i></a><br>일식</div>
+            <div><a href=\"./src/store_list.php?id=3\"><i class=\"flaticon-dumpling\"></i></a><br>중식</div>
+            <div><a href=\"./src/store_list.php?id=4\"><i class=\"flaticon-pizza\"></i></a><br>양식</div>
+            <div><a href=\"./src/store_list.php?id=5\"><i class=\"flaticon-fish-cake\"></i></a><br>분식</div>
+            <div><a href=\"./src/store_list.php?id=6\"><i class=\"flaticon-restaurant\"></i></a><br>그 외</div>
+            <div><a href=\"./src/store_list.php?id=7\"><i class=\"flaticon-coffee-beans\"></i></a><br>카페</div>
+            <div><a href=\"./src/store_list.php?id=8\"><i class=\"flaticon-scooter\"></i></a><br>테이크아웃</div>
+            <div><a href=\"./src/store_list.php?id=9\"><i class=\"flaticon-eat\"></i></a><br>혼밥</div>
+            <div><a href=\"./src/store_list.php?id=10\"><i class=\"flaticon-clock\"></i></a><br>24시간</div>
+            ";
 
       ?>
         </div>
