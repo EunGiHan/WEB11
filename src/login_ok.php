@@ -20,10 +20,9 @@
         $sql = "select * from member where userid='".$id."'";
         $result = mysqli_query($conn, $sql);
 
-        while($member = mysqli_fetch_array($result)){
+        $member = mysqli_fetch_array($result);
             /* 받아온 아이디에 해당하는 DB에서의 비밀번호를 hash_pw에 저장한다 */
             $hash_pw = $member['userpw'];
-            }
 
         if(password_verify($pw, $hash_pw)){/* 만약 비밀번호가 같으면 */
             $_SESSION['userid'] = $member["userid"];
