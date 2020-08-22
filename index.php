@@ -92,7 +92,7 @@ $conn = mysqli_connect(
               $rating = "<div class=\"rating\">";
               echo $rating;
 
-              $star = $row['star'];
+              $star = $row['star']; // 식당 star로 출력되는 오류가 있음
               for($i=5; $i>0; $i--){
                 if($star > 0){
                   echo "<span class=\"fa fa-star checked\"></span>";

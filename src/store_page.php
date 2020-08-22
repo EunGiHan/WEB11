@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $conn = mysqli_connect(
   'localhost',
   'inhapot',
@@ -13,8 +15,8 @@ while($row = mysqli_fetch_array($result)){
   $name = $row['name'];
   $star = $row['star'];
   $review_amount = $row['review_amount'];
-  $address = $row['address']; // 제대로 잘 되나 확인
-  $hour = $row['hour'];// 제대로 잘 되나 확인
+  $address = $row['address'];
+  $hour = $row['hour'];
   $tel = $row['tel'];
 ?>
 
