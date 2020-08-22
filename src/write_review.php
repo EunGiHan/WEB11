@@ -55,9 +55,7 @@ $star = 0;
           </fieldset>
       </div>
       <div>
-        <!--<form action="process_create.php" method="POST">-->
           <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
-          <!--<input type="hidden" name="star" value="php로 $star이었음">-->
           <input type="hidden" name="author" value="<?=$_SESSION['name']?>">
           <p><textarea name="review" rows="10" style="font-size:15pt" placeholder="리뷰를 입력하세요."></textarea></p>
           <p><input type="submit" name="리뷰 등록"></p>

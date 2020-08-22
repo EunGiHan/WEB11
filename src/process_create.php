@@ -8,27 +8,6 @@ $conn = mysqli_connect(
   'inhapot'
 );
 
-//$star = $_POST['rating'];
-/*switch($given_star){
-  case "5":
-    $star = "5";
-    break;
-  case "4":
-    $star = "4";
-    break;
-  case "3":
-    $star = "3";
-    break;
-  case "2":
-    $star = "2";
-    break;
-  case "1":
-    $star = "1";
-    break;
-  //default:
-    //$star = 0;
-}*/
-
 $filtered = array(
   'store_id'=>$_POST['store_id'],
   'author'=>$_POST['author'],
