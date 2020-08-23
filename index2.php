@@ -24,7 +24,8 @@ $conn = mysqli_connect(
     <div class="container">
             <div class="banner">
                 <div style="font-size:50px; color:whitesmoke"><b>INHA-POT</b></div>
-                <i class="fas fa-user-alt">00님 환영합니다.</i>
+                <i class="fas fa-user-alt">'.$_SESSION["name"].'님 환영합니다.</i>
+                <a href="../member/logout.php"><button type="logout" id="btn">로그아웃</button></a>
             </div>
         <div class="icon_box">
             <?php
