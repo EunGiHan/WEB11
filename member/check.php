@@ -7,10 +7,10 @@
         'inhapot'
     );
 
-    $sql = "select * from member where id={$_GET['userid']}";
+    $sql = "SELECT * FROM member WHERE \'userid\'=\'{$_GET['userid']}\'";
     $result = mysqli_query($conn, $sql);
-    $member = mysqli_fetch_array($result);
-	if($member == 0)
+    $member = mysqli_num_rows($result);
+	if($member==0)
 	{
 ?>
 <div><?php echo $_GET['userid']; ?>는 사용가능한 아이디입니다.</div>
