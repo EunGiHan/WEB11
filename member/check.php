@@ -1,5 +1,5 @@
-<!--<meta charset="utf-8">
-/*<?php
+<meta charset="utf-8">
+<?php
 	$conn = mysqli_connect(
         'localhost',
         'inhapot',
@@ -8,7 +8,9 @@
     );
 
     $sql = "select * from member where id={$_GET['userid']}";
-	if(!$member = mysqli_query($conn, $sql))
+    $result = mysqli_query($conn, $sql);
+    $member = mysqli_fetch_array($result);
+	if($member == 0)
 	{
 ?>
 <div><?php echo $_GET['userid']; ?>는 사용가능한 아이디입니다.</div>
@@ -18,16 +20,16 @@
 <div><?php echo $_GET['userid']; ?>는 중복된아이디입니다.<div>
         <?php
 			}
-        ?>*/
+        ?>
         <button value="닫기" onclick="window.close()">닫기</button>
         <script>
-        </script>-->
+        </script>
 
 
-
+        <!-- 
 <meta charset="utf-8">
 <?php
-	$conn = mysqli_connect(
+	/* $conn = mysqli_connect(
         'localhost',
         'inhapot',
         'inha8302#11',
@@ -41,8 +43,8 @@
 		} else {
 
 			echo "<div>{$_GET['userid']}는 중복된 아이디입니다.</div>";
-		}
+		} */
 ?>
 <button value="닫기" onclick="window.close()">닫기</button>
 <script>
-</script>
+</script> -->
