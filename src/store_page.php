@@ -94,7 +94,7 @@ while($row = mysqli_fetch_array($result)){
                 echo "{$row['menu']}"."---"."{$row['price']}"."원<br>";
               }
               ?>
-              <a href="update_store_menu.php?store_id=<?=$_GET['store_id']?>">메뉴 정보 수정 제안하기</a>
+              <a href="update_menu.php?store_id=<?=$_GET['store_id']?>">메뉴 정보 수정 제안하기</a>
           </div>
       </div>
       <div class="reviewbox">
