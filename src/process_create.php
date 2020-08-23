@@ -9,7 +9,7 @@ $conn = mysqli_connect(
 );
 
 $filtered = array(
-  'store_id'=>$_POST['store_id'],
+  'store_id'=>htmlspecialchars($_POST['store_id']),
   'author'=>$_POST['author'],
   'review'=>mysqli_real_escape_string($conn, $_POST['review']),
   'star'=> $_POST['rating']
@@ -20,21 +20,25 @@ $sql1 = "
     VALUES('{$filtered['store_id']}', '{$filtered['author']}', NOW(), '{$filtered['star']}', '{$filtered['review']}')"; // star수정
 $result1 = mysqli_query($conn, $sql1);
 
-$sql2 = "UPDATE stores SET review_amount = review_amount + 1 WHERE id={$filtered['store_id']}"; // 리뷰 수 갱신
-$result2 = mysqli_query($conn, $sql2);
+$sql_num_reviews = "SELECT * FROM reviews WHERE store_id={$filtered['store_id']}";
+$result_num_reviews = mysqli_query($conn, $sql_num_reviews);
+$row_num_reviews = mysqli_num_rows($result_num_reviews);
+
+$sql2 = "UPDATE stores SET review_amount = '{$row_num_reviews}' WHERE id={$filtered['store_id']}"; // 리뷰 수 갱신
+mysqli_query($conn, $sql2);
 
 //별점 점수 평균 내서 계산, 1점 단위로
-$sql3 = "SELECT star FROM reviews WHERE store_id={$_POST['store_id']}";
-$result3 = mysqli_query($conn, $sql3);
+//$sql3 = "SELECT star FROM reviews WHERE store_id={$_POST['store_id']}";
+//$result3=mysqli_query($conn, $sql3);
 $star_sum = 0;
-$review_amount = 0;
-while($row=mysqli_fetch_array($result3)){
+//$review_amount = 0;
+while($row=mysqli_fetch_array($result_num_reviews)){
   $star_sum = $star_sum + $row['star'];
-  $review_amount = $review_amount + 1;
+  //$review_amount = $review_amount + 1;
 }
-$star_avg = $star_sum/$review_amount;
+$star_avg = $star_sum/$row_num_reviews;
 settype($star_avg, "integer"); // 반올림으로는 어떻게 할까용?
-$sql4 = "UPDATE stores SET star = $star_avg WHERE id={$_POST['store_id']}";
+$sql4 = "UPDATE stores SET star = '{$star_avg}' WHERE id={$_POST['store_id']}";
 $result4 = mysqli_query($conn, $sql4);
 ?>
 
