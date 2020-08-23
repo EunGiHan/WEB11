@@ -19,9 +19,14 @@ $sql = "
   WHERE id = {$article['id']}";
 $result = mysqli_query($conn, $sql);
 
+$arr_menu = isset($_POST['menu']) ? $_POST['menu'] : '';
+$arr_price = isset($_POST['price']) ? $_POST['price'] : '';
+$arr_id = isset($_POST['menu_id']) ? $_POST['menu_id'] : '';
+$i = 0;
 while($i<4){
-  $sql2 = "UPDATE menus SET menu='{$_POST['menu[$i]']}', price='{$_POST['price[$i]']}' WHERE id = {$_POST['menu_id[$i]']}";
+  $sql2 = "UPDATE menus SET menu='{$arr_menu[$i]}', price='{$arr_price[$i]}' WHERE id = {$arr_id[$i]}";
   $result2 = mysqli_query($conn, $sql2);
+  $i = $i + 1;
 }
 
 if($result === false){

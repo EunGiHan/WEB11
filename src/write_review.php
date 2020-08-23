@@ -32,7 +32,7 @@ $star = 0;
           <input type="button" class="btn1" onclick="location.href='../index.php';" value="home" >
       </div>
       <div><h1><?=$name?></h1></div><br>
-      <div style="border-top: 1px solid gainsboro;">별점을 선택하세요.</div><br>
+      <div style="text-align: center; border-top: 1px solid gainsboro ;">별점을 선택하세요.</div><br>
       <form action="process_create.php" method="POST">
       <div class="rating">
           <fieldset>
@@ -57,8 +57,8 @@ $star = 0;
       <div>
           <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
           <input type="hidden" name="author" value="<?=$_SESSION['name']?>">
-          <p><textarea name="review" rows="10" style="font-size:15pt" placeholder="리뷰를 입력하세요."></textarea></p>
-          <p><input type="submit" name="리뷰 등록"></p>
+          <div style="margin: 10px;"><textarea name="review" rows="10" style="font-size:15pt" placeholder="리뷰를 입력하세요."></textarea></div>
+          <div style="text-align: right;margin: 20px;"><input type="submit" name="리뷰 등록"></div>
         </form>
       </div>
   </div>

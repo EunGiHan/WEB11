@@ -13,10 +13,13 @@ $result = mysqli_query($conn, $sql);
 $row=mysqli_fetch_array($result);
 $name = $row['name'];
 
-$sql2 = "SELECT review FROM reviews WHERE author={$_SESSION['name']}";
+$sql2 = "SELECT * FROM reviews WHERE author={$_SESSION['name']} AND id={$_POST['id']}";
 $result2 = mysqli_query($conn, $sql);
 $row2 = mysqli_fetch_array($result2);
-$review = $row2['review'];
+$article = array(
+  'review' => htmlspecialchars($row2['review']),
+  'id' => $_GET['id']
+);
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +29,7 @@ $review = $row2['review'];
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/review.css">
     <link rel="stylesheet" href="../css/responsive.css">
-    <title>리뷰 작성</title>
+    <title>리뷰 수정</title>
 </head>
 
 <body>
@@ -36,12 +39,12 @@ $review = $row2['review'];
           <input type="button" class="btn1" onclick="location.href='../index.php';" value="home" >
       </div>
       <div><h1><?=$name?></h1></div><br>
-      <div style="border-top: 1px solid gainsboro;">별점을 선택하세요.</div><br>
-      <form action="process_create.php" method="POST">
+      <div style="text-align: center; border-top: 1px solid gainsboro;">별점을 선택하세요.</div><br>
+      <form action="process_update_review.php" method="POST">
       <div class="rating">
           <fieldset>
               <span class="star-cb-group">
-
+                  <!-- 여기 선택했던 별점 가져오는 법? -->
                   <input type="radio" id="rating-5" name="rating" value="5"/>
                   <label for="rating-5">5</label>
                   <input type="radio" id="rating-4" name="rating" value="4"/>
@@ -61,8 +64,9 @@ $review = $row2['review'];
       <div>
           <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
           <input type="hidden" name="author" value="<?=$_SESSION['name']?>">
-          <p><textarea name="review" rows="10" style="font-size:15pt" value="<?=$review?>"></textarea></p>
-          <p><input type="submit" name="리뷰 등록"></p>
+          <input type="hidden" name="id" value="<?=$article['id']?>">
+          <p><textarea name="review" rows="10" style="font-size:15pt" value="<?=$article['review']?>"></textarea></p>
+          <p><input type="submit" name="리뷰 수정"></p>
         </form>
       </div>
   </div>

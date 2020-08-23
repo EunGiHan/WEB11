@@ -51,10 +51,11 @@ $conn = mysqli_connect(
             $i = 0;
             while($row = mysqli_fetch_array($result)){
               $arr_menu[$i] = $row['menu'];
-              $arr_menu[$i] = $row['price'];
+              $arr_price[$i] = $row['price'];
               $arr_id[$i] = $row['id'];
-              echo "<input type=\"hidden\" name=\"menu_id[$i]\" value=\"{$arr_id[$i]}\">";
-              echo "<input type=\"text\" name=\"menu[$i]\" value=\"{$arr_menu[$i]}\"><input type=\"text\" name=\"price[$i]\" value=\"{$arr_menu[$i]}\">원<br>";
+              echo "<input type=\"hidden\" name=\"menu_id[]\" value=\"{$arr_id[$i]}\">";
+              echo "<input type=\"text\" name=\"menu[]\" value=\"{$arr_menu[$i]}\"><input type=\"text\" name=\"price[]\" value=\"{$arr_price[$i]}\">원<br>";
+              $i = $i + 1;
             }
             ?>
           </div>

@@ -20,6 +20,7 @@ while($row = mysqli_fetch_array($result)){
   $tel = $row['tel'];
 ?>
 
+
 <!DOCTYPE html>
 <html>
 
@@ -67,7 +68,7 @@ while($row = mysqli_fetch_array($result)){
               echo "<div class=\"text3\">전화번호<div id=\"plus\">"."{$row['tel']}"."</div></div>";
             }
              ?>
-            <div><a href="update_info.php?store_id=<?=$_GET['store_id']?>">정보 수정 제안하기</a></div>
+            <div style="text-align: center;"><a href="update_info.php?store_id=<?=$_GET['store_id']?>">정보 수정 제안하기</a></div>
           </div>
       </div>
       <div class="menubox">
@@ -88,7 +89,7 @@ while($row = mysqli_fetch_array($result)){
           </div>
           <div id="hide2" style="display: none">
               <?php
-              $sql = "SELECT * FROM menus WHERE store_id={$_GET['store_id']} ORDER BY price";
+              $sql = "SELECT * FROM menus WHERE store_id={$_GET['store_id']} ORDER BY price DESC";
               $result = mysqli_query($conn, $sql);
               while($row = mysqli_fetch_array($result)){
                 echo "{$row['menu']}"."---"."{$row['price']}"."원<br>";
@@ -121,9 +122,17 @@ while($row = mysqli_fetch_array($result)){
 
         echo "</div>";
         echo "<div class=\"comment\">"."{$row['review']}"."</div></div>";
-        }
-         ?>
 
+        if($_SESSION['name'] == $row['author']){
+          $update_link = '<a href="update_review.php?store_id='.$_GET['store_id'].'&id='.$row['id'].'">수정</a>';
+          echo $update_link;
+          echo '<form action="process_delete.php" method="post">
+                  <input type="hidden" name="store_id" value"'.$_GET['id'].'">
+                  <input type="submit" value="삭제">
+                </form>';
+        }
+      }
+       ?>
      </div>
   </div>
 </body>
