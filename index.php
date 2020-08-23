@@ -12,6 +12,7 @@ $conn = mysqli_connect(
 
 <head>
     <meta charset="utf-8">
+    <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../font/flaticon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/homepage.css">
@@ -22,15 +23,8 @@ $conn = mysqli_connect(
 <body>
     <div class="container">
         <div class="banner">
-          <b>INHA-POT</b>
-        </div>
-        <div class="login_box">
-            <form action="./src/login_ok.php" method="POST">
-                <p>ID: <input type="text" name="userid"></p>
-                <p>Password: <input type="password" name="userpw"></p>
-                <button type="submit" id="btn">로그인</button>
-                <a href="./src/member.php">회원가입 하러가기</a>
-            </form>
+                <div style="font-size:50px; color:whitesmoke"><b>INHA-POT</b></div>
+                <a href="login.html"><i class="fas fa-user-alt" style="float:right; margin-top:-15px; margin-right:15px;">로그인</i></a>
         </div>
         <div class="icon_box">
             <?php
