@@ -13,6 +13,7 @@ $conn = mysqli_connect(
 
 <head>
     <meta charset="utf-8">
+    <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./font/flaticon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/homepage.css">
@@ -22,44 +23,19 @@ $conn = mysqli_connect(
 
 <body>
     <div class="container">
-        <div class="banner">
-            <b>INHA-POT</b>
-        </div>
-
+      <div class="banner">
+        <div style="font-size:50px; color:whitesmoke"><b>INHA-POT</b></div>
         <?php
         if(isset($_SESSION['userid'])){
-            echo "
-            <div>
-            <p>{$_SESSION['name']} 님 환영합니다.</p>
-            <p><a href='./member/logout.php'>로그아웃</a></p>
-            </div>
-            ";
+            echo '<i class="fas fa-user-alt">'.$_SESSION["name"].'님 환영합니다.</i>
+            <a href="../member/logout.php"><button type="logout" id="btn">로그아웃</button></a>';
         }else {
-          echo '
-          <div class="login_box">
-            <form action="./member/login_ok.php" method="POST">
-                <table>
-                    <tr>
-                        <td>ID</td>
-                        <td><input type="text" name="userid"></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="userpw"></td>
-                    </tr>
-                    <tr>
-                        <td><button type="submit" id="btn">로그인</button></td>
-                    </tr>
-                    <tr>
-                        <td><a href="./member/member.php">회원가입 하러가기</a></td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-          ';
+          echo '<a href="./member/login.php"><i class="fas fa-user-alt" style="float:right; margin-top:-15px; margin-right:15px;">로그인</i></a>';
         }
         ?>
 
+
+      </div>
         <div class="icon_box">
             <?php
       echo "<div><a href=\"./src/store_list.php?id=1\"><i class=\"flaticon-bibimbap\"></i></a><br>한식</div>
