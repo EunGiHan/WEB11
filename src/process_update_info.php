@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <?php
 $conn = mysqli_connect(
   'localhost',
@@ -10,7 +11,7 @@ $article = array(
   'store_id' => mysqli_real_escape_string($conn, $_POST['store_id']),
   'address' => htmlspecialchars($_POST['address']),
   'hour' => htmlspecialchars($_POST['hour']),
-  'tel' => htmlspecialchars($_POST['tel']),
+  'tel' => htmlspecialchars($_POST['tel'])
 );
 
 $sql = "
@@ -19,9 +20,9 @@ $result = mysqli_query($conn, $sql);
 
 if($result === false){
   echo "정보를 수정하는 과정에서 문제가 생겼습니다. 관리자에게 문의해주세요";
-  error_log(mysqli_error($conn));
+  echo mysqli_error($conn);
 }else{
-  //$location = 'Location: store_page?store_id='."{$article['store_id']}";
-  header('Location: ../index.php');
+  $url = 'store_page.php?store_id='.$filtered['store_id'];
+  header("Location: ".$url);
 }
 ?>
