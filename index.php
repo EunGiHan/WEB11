@@ -35,7 +35,7 @@ $conn = mysqli_connect(
             <div><a href=\"./src/store_list.php?id=5\"><i class=\"flaticon-fish-cake\"></i></a><br>분식</div>
             <div><a href=\"./src/store_list.php?id=6\"><i class=\"flaticon-restaurant\"></i></a><br>그 외</div>
             <div><a href=\"./src/store_list.php?id=7\"><i class=\"flaticon-coffee-beans\"></i></a><br>카페</div>
-            <div><a href=\"./src/store_list.php?id=8\"><i class=\"flaticon-scooter\"></i></a><br>테이크아웃</div>
+            <div><a href=\"./src/store_list.php?id=8\"><i class="far fa-heart fa-3x"style="margin-top:3px;"></i></a><br><p style="margin-top:5px;">데이트</p></div>
             <div><a href=\"./src/store_list.php?id=9\"><i class=\"flaticon-eat\"></i></a><br>혼밥</div>
             <div><a href=\"./src/store_list.php?id=10\"><i class=\"flaticon-clock\"></i></a><br>24시간</div>
             ";
