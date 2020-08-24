@@ -7,7 +7,16 @@ $conn = mysqli_connect(
     'inhapot'
 );
 
-    if($_POST['userid']=="" || $_POST['userpw']==''){
+    // 아이디 중복검사를 하지 않았다면?
+    if($_REQUEST['chs'] == 1){
+        echo '<script charset="utf-8">alert("아이디 중복검사를 해야 합니다."); history.back();</script>';
+    }
+    // 아이디 중복검사 결과가 중복된 아이디였다면?
+    else if($_REQUEST['checked_id'] == 0){
+        echo '<script charset="utf-8">alert("아이디가 중복됩니다."); history.back();</script>';
+    }
+
+    else if($_POST['userid']=="" || $_POST['userpw']==''){
         echo '<script charset="utf-8">alert("회원가입에 실패했습니다"); history.back();</script>';
     }else{
         $id = $_POST['userid'];
