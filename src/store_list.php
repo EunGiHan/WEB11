@@ -41,6 +41,7 @@ $row = mysqli_fetch_array($result);
                 <li><a href="store_list.php?id=<?=$_GET['id']?>&sort=price">대표메뉴 가격 순</a></li>
               </ul>
           </div>
+          <div><a href="add_store.php?id=<?=$_GET['id']?>">식당 추가하기</a></div>
       </div>
       <?php
       $sql = "SELECT * FROM stores WHERE category={$_GET['id']}";

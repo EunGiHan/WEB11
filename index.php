@@ -17,7 +17,7 @@ $conn = mysqli_connect(
     <link rel="stylesheet" href="./font/flaticon.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/homepage.css">
-    <link rel="stylesheet" href="./css/responsive.css">
+    <!-- <link rel="stylesheet" href="./css/responsive.css"> -->
     <title>INHA-Pot</title>
 </head>
 
