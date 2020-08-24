@@ -8,7 +8,7 @@ $conn = mysqli_connect(
   'inhapot'
 );
 
-$sql = "SELECT * FROM stores WHERE id={$_GET['store_id']}";
+$sql = "SELECT * FROM stores WHERE id='{$_GET['store_id']}'";
 $result = mysqli_query($conn, $sql);
 
 while($row = mysqli_fetch_array($result)){
@@ -153,6 +153,7 @@ while($row = mysqli_fetch_array($result)){
                 <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
                 <input type="hidden" name="star_count" value="<?php echo $star_origin;?>">
                 <input type="hidden" name="comment" value="<?php echo $row['review'];?>">
+                <input type="hidden" name="review_id" value="<?php echo $row['id'] ?>">
                 <input type="submit" value="수정">
             </form>
             <form action="process_delete.php" method="post">

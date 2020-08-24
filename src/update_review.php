@@ -18,7 +18,7 @@ $result2 = mysqli_query($conn, $sql);
 $row2 = mysqli_fetch_array($result2);
 $article = array(
   'review' => htmlspecialchars($row2['review']),
-  'id' => $_GET['store_id']
+  'id' => $_REQUEST['review_id']
 );
 ?>
 

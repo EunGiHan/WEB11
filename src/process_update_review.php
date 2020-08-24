@@ -8,11 +8,13 @@ $conn = mysqli_connect(
 );
 
 $article = array(
-  'id' => $_POST['id'],
+  'id' => $_REQUEST['id'],
   'star' => $_POST['rating'],
   'review' => htmlspecialchars($_POST['review']),
-  'store_id' => $_POST['store_id'],
+  'store_id' => $_REQUEST['store_id'],
+  'author' => $_REQUEST['author']
 );
+// 값들은 잘 넘어온거 확인함
 
 $sql = "
     UPDATE reviews SET created = NOW(), star = '{$article['star']}', review = '{$article['review']}' WHERE id = {$article['id']}";
@@ -37,7 +39,7 @@ if($result === false){
   echo "리뷰를 수정하는 과정에서 문제가 생겼습니다. 관리자에게 문의해주세요";
   error_log(mysqli_error($conn));
 }else{
-  $url = 'store_page.php?store_id='.$filtered['store_id'];
+  $url = 'store_page.php?store_id='.$article['store_id'];
   header("Location: ".$url);
 }
 ?>
