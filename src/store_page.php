@@ -119,7 +119,7 @@ while($row = mysqli_fetch_array($result)){
         <div class="reviewbox">
             <?php
       echo "<strong>리뷰 ("."{$review_amount}"."건)</strong>";
-      $sql = "SELECT * FROM reviews WHERE store_id={$_GET['store_id']}";
+      $sql = "SELECT * FROM reviews WHERE store_id={$_GET['store_id']} ORDER BY created DESC";
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result)){
         $class_review = "<div class=\"review\">";
@@ -145,9 +145,10 @@ while($row = mysqli_fetch_array($result)){
         // comment 표현
         echo "<div class=\"comment\">"."{$row['review']}"."</div></div>";
 
-          // 아이디 네임이랑 리뷰 네임이랑 같으면 업데이트 표시
-        if($_SESSION['name'] == $row['author']){
+          // 아이디 네임이랑 리뷰 네임이랑 같으면 업데이트 표시 $_SESSION['name'] == $row['author']
+        if(isset($_SESSION) && $_SESSION['name'] == $row['author'] ){
           $update_link = "update_review.php?store_id='".$_GET['store_id']."'&id='".$row['id']."'";
+          $review_id = $row['id'];
           ?>
             <form action="<?php echo $update_link;?>">
                 <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
@@ -157,11 +158,13 @@ while($row = mysqli_fetch_array($result)){
                 <input type="submit" value="수정">
             </form>
             <form action="process_delete.php" method="post">
-                <input type="hidden" name="store_id" value="<?=$_GET['id']?>">
-                <input type="hidden" name="star_count" value="<?php echo '$star_origin'?>">
-                <input type="hidden" name="comment" value="<?=$row['review']?>">
+                <input type="hidden" name="id" value="<?=$review_id?>">
+                <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
+                <!-- <input type="hidden" name="star_count" value="<?php //echo '$star_origin'?>"> -->
+                <!-- star_count는 왜....? -->
+                <!-- <input type="hidden" name="comment" value="<?php//$row['review']?>"> -->
                 <input type="submit" value="삭제">
-            </form>;
+            </form>
             <?php
             }
             }

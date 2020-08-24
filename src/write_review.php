@@ -21,7 +21,7 @@ $star = 0;
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/review.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- <link rel="stylesheet" href="../css/responsive.css"> -->
     <title>리뷰 작성</title>
 </head>
 
@@ -48,7 +48,7 @@ $star = 0;
                   <label for="rating-2">2</label>
                   <input type="radio" id="rating-1" name="rating" value="1"/>
                   <label for="rating-1">1</label>
-                  <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear"/> <!--checked넣긴 했는데 얘 뭔 뜻이지>>-->
+                  <input type="radio" id="rating-0" name="rating" value="0" checked="checked" class="star-cb-clear"/> <!--checked넣긴 했는데 얘 뭔 뜻이지>>-->
                   <label for="rating-0">0</label>
 
               </span>
@@ -56,7 +56,14 @@ $star = 0;
       </div>
       <div>
           <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
-          <input type="hidden" name="author" value="<?=$_SESSION['name']?>">
+          <?php
+          if(isset($_SESSION['name'])){
+            $author = $_SESSION['name'];
+          }else {
+            $author = "미확인 사용자";
+          }
+          ?>
+          <input type="hidden" name="author" value="<?=$author?>">
           <div style="margin: 10px;"><textarea name="review" rows="10" style="font-size:15pt" placeholder="리뷰를 입력하세요."></textarea></div>
           <div style="text-align: right;margin: 20px;"><input type="submit" name="리뷰 등록"></div>
         </form>

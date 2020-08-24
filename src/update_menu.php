@@ -17,7 +17,7 @@ $conn = mysqli_connect(
   <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../css/restaurant.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="../css/responsive.css">
+  <!-- <link rel="stylesheet" href="../css/responsive.css"> -->
   <title>식당 메뉴 수정</title>
 </head>
 

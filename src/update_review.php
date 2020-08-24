@@ -28,7 +28,7 @@ $article = array(
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/review.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- <link rel="stylesheet" href="../css/responsive.css"> -->
     <title>리뷰 수정</title>
 </head>
 
@@ -47,7 +47,7 @@ $article = array(
                 <fieldset>
                     <span class="star-cb-group">
                         <!-- 별점 가져오기 성공 -->
-                        <?php 
+                        <?php
                         $star_origin = $_REQUEST['star_count'];
                         // 별점 출력 로직 부분
                         for($i=5; $i>0; $i--){
