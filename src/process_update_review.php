@@ -9,10 +9,9 @@ $conn = mysqli_connect(
 
 $article = array(
   'id' => $_POST['id'],
-  'star' => $_POST['star'],
+  'star' => $_POST['rating'],
   'review' => htmlspecialchars($_POST['review']),
   'store_id' => $_POST['store_id'],
-  'star'=> $_POST['rating']
 );
 
 $sql = "

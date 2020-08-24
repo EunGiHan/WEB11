@@ -20,6 +20,7 @@ while($row = mysqli_fetch_array($result)){
   $tel = $row['tel'];
 ?>
 
+
 <!DOCTYPE html>
 <html>
 
@@ -42,6 +43,7 @@ while($row = mysqli_fetch_array($result)){
         <div class="title">
             <b><?=$name?></b><br>
             <?php
+            $star_origin = $star;
             for($i=5; $i>0; $i--){
               if($star > 0){
                 echo "<span class=\"fa fa-star checked\"></span>";
@@ -57,17 +59,17 @@ while($row = mysqli_fetch_array($result)){
         <table>
             <td id="share"><a id="kakao-link-btn" href="javascript:sendLink()">카카오톡으로 공유하기</a></td>
             <script type="text/javascript">
-              Kakao.init('2d9e02bbf3e491073a84b72ed8376f1f');
-              function sendLink() {
-              Kakao.Link.sendCustom({
-                templateId: 34900,
-                templateArgs: {
-                  title:
-                    'INHA-POT',
-                  description:
-                    'http://inhapot.dothome.co.kr/src/store_page.php?store_id=<?=$_GET['store_id']?>',
-                },
-              })
+            Kakao.init('2d9e02bbf3e491073a84b72ed8376f1f');
+
+            function sendLink() {
+                Kakao.Link.sendCustom({
+                    templateId: 34900,
+                    templateArgs: {
+                        title: 'INHA-POT',
+                        description: 'http://inhapot.dothome.co.kr/src/store_page.php?store_id=<?=$_GET['
+                        store_id ']?>',
+                    },
+                })
             }
             </script>
             <td><a href="../src/write_review.php?store_id=<?=$_GET['store_id']?>">리뷰 작성하기</td>
@@ -145,17 +147,24 @@ while($row = mysqli_fetch_array($result)){
 
           // 아이디 네임이랑 리뷰 네임이랑 같으면 업데이트 표시
         if($_SESSION['name'] == $row['author']){
-          $update_link = '<a href="update_review.php?store_id='.$_GET['store_id'].'&id='.$row['id'].'">수정</a>';
-          echo $update_link;
-          echo '<form action="process_delete.php" method="post">
-                  <input type="hidden" name="store_id" value="{$_GET[\'id\']}">
-                  <input type="hidden" name="star_count" value="'.$row['star'].'">
-                  <input type="hidden" name="comment" value="'.$row['review'].'">
-                  <input type="submit" value="삭제">
-                </form>';
-        }
-      }
-       ?>
+          $update_link = "update_review.php?store_id='".$_GET['store_id']."'&id='".$row['id']."'";
+          ?>
+            <form action="<?php echo $update_link;?>">
+                <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
+                <input type="hidden" name="star_count" value="<?php echo $star_origin;?>">
+                <input type="hidden" name="comment" value="<?php echo $row['review'];?>">
+                <input type="submit" value="수정">
+            </form>
+            <form action="process_delete.php" method="post">
+                <input type="hidden" name="store_id" value="<?=$_GET['id']?>">
+                <input type="hidden" name="star_count" value="<?php echo '$star_origin'?>">
+                <input type="hidden" name="comment" value="<?=$row['review']?>">
+                <input type="submit" value="삭제">
+            </form>;
+            <?php
+            }
+            }
+            ?>
         </div>
     </div>
 </body>
