@@ -160,9 +160,6 @@ while($row = mysqli_fetch_array($result)){
             <form action="process_delete.php" method="post">
                 <input type="hidden" name="id" value="<?=$review_id?>">
                 <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
-                <!-- <input type="hidden" name="star_count" value="<?php //echo '$star_origin'?>"> -->
-                <!-- star_count는 왜....? -->
-                <!-- <input type="hidden" name="comment" value="<?php//$row['review']?>"> -->
                 <input type="submit" value="삭제">
             </form>
             <?php
