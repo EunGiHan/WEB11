@@ -20,7 +20,6 @@ while($row = mysqli_fetch_array($result)){
   $tel = $row['tel'];
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
@@ -29,7 +28,8 @@ while($row = mysqli_fetch_array($result)){
     <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/restaurant.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- <link rel="stylesheet" href="../css/responsive.css"> -->
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <title><?=$name?></title>
 </head>
 
@@ -55,7 +55,21 @@ while($row = mysqli_fetch_array($result)){
            ?>
         </div>
         <table>
-            <td id="share">공유</td>
+            <td id="share"><a id="kakao-link-btn" href="javascript:sendLink()">카카오톡으로 공유하기</a></td>
+            <script type="text/javascript">
+              Kakao.init('2d9e02bbf3e491073a84b72ed8376f1f');
+              function sendLink() {
+              Kakao.Link.sendCustom({
+                templateId: 34900,
+                templateArgs: {
+                  title:
+                    'INHA-POT',
+                  description:
+                    'http://inhapot.dothome.co.kr/src/store_page.php?store_id=<?=$_GET['store_id']?>',
+                },
+              })
+            }
+            </script>
             <td><a href="../src/write_review.php?store_id=<?=$_GET['store_id']?>">리뷰 작성하기</td>
         </table>
         <div class="information">
