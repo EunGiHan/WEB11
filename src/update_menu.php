@@ -41,7 +41,7 @@ $conn = mysqli_connect(
             $main_menu = mysqli_fetch_array($result);
              ?>
             <b>대표메뉴: </b><input type="text" name="main_menu" value="<?=$main_menu['main_menu']?>"><div style="float:right;"><input type="text" name="main_menu_price" value="<?=$main_menu['main_menu_price']?>">원</div><br>
-          </div>
+          </div><br>
           <div class="text">
             <?php
             $sql = "SELECT * FROM menus WHERE store_id={$_GET['store_id']} ORDER BY price";
@@ -55,7 +55,7 @@ $conn = mysqli_connect(
               $arr_price[$i] = $row['price'];
               $arr_id[$i] = $row['id'];
               echo "<input type=\"hidden\" name=\"menu_id[]\" value=\"{$arr_id[$i]}\">";
-              echo "<input type=\"text\" name=\"menu[]\" value=\"{$arr_menu[$i]}\"><div style="float:right;"><input type=\"text\" name=\"price[]\" value=\"{$arr_price[$i]}\">원</div><br>";
+              echo "<input type=\"text\" name=\"menu[]\" value=\"{$arr_menu[$i]}\"><div style="float:right;"><input type=\"text\" name=\"price[]\" value=\"{$arr_price[$i]}\">원</div><br><br>";
               $i = $i + 1;
             }
             ?>
