@@ -30,6 +30,7 @@ td{
 }
 .infromation,.menubox,.reviewbox{
     margin-top:10px;
+    
 }
 #show,#show2{
     text-decoration: none;
@@ -50,7 +51,8 @@ td{
 }
 .menu,#show2,#hide2{
     text-align:center;
-}.review{
+}
+.review{
     width: 100%; height: 110px;
     background-color: gainsboro;
     display:grid;
@@ -64,4 +66,8 @@ strong{
 }
 #hide1,.menu,.review,table{
     margin-top:10px;
+}
+a{
+    text-decoration:none !important;
+    color: black;
 }
