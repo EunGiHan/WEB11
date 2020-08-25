@@ -29,7 +29,7 @@ while($row = mysqli_fetch_array($result)){
     <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/restaurant.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- <link rel="stylesheet" href="../css/responsive.css"> -->
+    <link rel="stylesheet" href="../css/responsive.css">
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <title><?=$name?></title>
 </head>

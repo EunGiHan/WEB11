@@ -21,7 +21,7 @@ $star = 0;
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/review.css">
-    <!-- <link rel="stylesheet" href="../css/responsive.css"> -->
+    <link rel="stylesheet" href="../css/responsive.css">
     <title>리뷰 작성</title>
 </head>
 

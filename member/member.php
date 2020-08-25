@@ -29,17 +29,17 @@
         <table>
             <tr>
                 <td>Name</td>
-                <td><input type="text" name="name" placeholder="이름"></td>
+                <td><input type="text" name="name" placeholder="이름" style="width:280px;"></td>
             </tr>
             <tr>
                 <td>ID</td>
-                <td><input type="text" name="userid" placeholder="아이디" id="chk_id1"></td>
+                <td><input type="text" name="userid" placeholder="아이디" id="chk_id1" style="width:280px;"></td>
                 <td><input type="hidden" value="1" name="chs" id="chk_id2"></td>
                 <td><input type="button" value="중복검사" onclick="checkid();"></td>
             </tr>
             <tr>
                 <td>Password</td>
-                <td><input type="password" name="userpw" placeholder="비밀번호"></td>
+                <td><input type="password" name="userpw" placeholder="비밀번호"  style="width:280px;"></td>
             </tr>
             <tr>
                 <td>email</td>

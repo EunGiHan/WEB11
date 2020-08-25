@@ -1,40 +1,64 @@
 .container{
-    width: 100%; height: 640px;
-}
-body{
-    margin: auto;
+  width: 100%; height: 640px;
 }
 .top{
-    border-bottom: 1px solid black;
+  margin-top:5px;
+  width:100%; height:30px;
+  background-color: teal;
+  font-size:20px;
+  text-align: center;
+  border-radius: 10px;
 }
-.btn1,.dropdown{
-    float:right;
+.title{
+    display:flex;
+    flex-direction: row;
 }
-strong{
-    font-size:30px;
-    margin-top:5px;
+.border{
+    border-bottom:4px;
+    border-bottom-style: dashed;
+}
+.btn1{
+  width:60px; height:30px;
+  float:left;
+  margin-left:10px;
+  margin-top:-27px;
+  font-size:15px;
+  border-radius:5px;
+  border:1px solid black;
+  text-align:center;
 }
 .dropdown{
-    margin-right:40px;
-    margin-top: 5px;
+    margin-left:10px;
 }
-li{
-    font-size:10px;
+.add_store{
+  width:40%;
+  margin-top: 10px;
+  background-color:paleturquoise;
+  border-radius:10px;
+  margin:auto;
+  text-align: center;
+
+}
+strong{
+  font-size:30px;
+}
+ul{
+  font-size:10px;
 }
 .place{
-    width:100%; height:110px;
-    background-color: #fff9c4;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    margin-top: 10px;
-}
-.menu{
-    height:80px;
-    border:1px solid black;
+  width:100%; height:80px;
+  background-color: gainsboro;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  margin-top: 10px;
 }
 .rating{
-    text-align: right;
+  text-align: right;
 }
 .checked {
-    color: orange;
-  }
+  color: orange;
+}
+a{
+  text-decoration:none !important ;
+  color: black !important ;
+}

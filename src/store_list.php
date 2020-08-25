@@ -17,32 +17,38 @@ $row = mysqli_fetch_array($result);
     <meta charset="utf-8">
     <script src="https://kit.fontawesome.com/78e43f918f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/category.css">
-    <!-- <link rel="stylesheet" href="../css/responsive.css"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <title><?="{$row['category']}"?></title>
 </head>
 
 <body>
   <div class="container">
       <div class="top">
-          <input type="button" class="btn" onclick="location.href='javascript:history.back()';" value="back">
-          <input type="button" class="btn1" onclick="location.href='../index.php';" value="home" >
-      </div>
+              <div style="text-align:center;"><a href="../index.php"><b style="color:white;">INHA-POT</b></a></div>
+              <div> <input type="button" class="btn1" onclick="location.href='../index.php';" value="back"></div>
+      </div><br>
       <div class="title">
           <strong><?="{$row['category']}"?></strong>
           <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">정렬
-              <span class="caret"></span></button>
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="background-color:teal; margin-left:20px;">정렬
+              <span class="caret"></span></button><br><br>
               <ul class="dropdown-menu">
                 <li><a href="store_list.php?id=<?=$_GET['id']?>&sort=star">별점 높은 순</a></li>
                 <li><a href="store_list.php?id=<?=$_GET['id']?>&sort=review">리뷰 많은 순</a></li>
                 <li><a href="store_list.php?id=<?=$_GET['id']?>&sort=price">대표메뉴 가격 순</a></li>
               </ul>
           </div>
-          <div><a href="add_store.php?id=<?=$_GET['id']?>">식당 추가하기</a></div>
       </div>
+      <div class="border"></div><br>
+      <div>
+        <a href="add_store.php?id=<?=$_GET['id']?>">
+          <div  class= "add_store">
+            <b>식당 추가하기</b>
+          </div>
+        </a></div>
       <?php
       $sql = "SELECT * FROM stores WHERE category={$_GET['id']}";
       if(isset($_GET['sort'])){
@@ -57,14 +63,10 @@ $row = mysqli_fetch_array($result);
       $result = mysqli_query($conn, $sql);
 
       while($row = mysqli_fetch_array($result)){
-        $box_div = "<div class=\"place\">";
-        $img = "<img src=\"../assets/food_1.jpg\" width=\"150px\" height=\"100px\" >";
-        echo $box_div;
-        echo $img;
-
+        echo "<div class=\"place\">";
         $name_menu = "
         <div>
-            <b><a href=\"store_page.php?store_id={$row['id']}\">"."{$row['name']}"."</a></b><br>
+            <b style=\"font-size:20px;\"><a href=\"store_page.php?store_id={$row['id']}\">"."{$row['name']}"."</a></b><br>
             <div class=\"menu\">"."{$row['main_menu']}"."</div>
         </div>
         ";
