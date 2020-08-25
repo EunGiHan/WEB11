@@ -28,21 +28,21 @@ $conn = mysqli_connect(
             <input type="button" class="btn1" onclick="location.href='javascript:history.back()';" value="back">
       </div><br>
       <div class="title">
-          <b style="font-size:20px;"><?=$name?>-대표메뉴</b>
+          <b style="font-size:20px;"><?=$name?></b>
       </div><br>
       <div class="border"></div><br>
       <div class="menubox">
         <form action="process_update_menu.php" method="POST">
           <input type="hidden" name="store_id" value="<?=$_GET['store_id']?>">
-          <div class="text">
+          <div class="best">
             <?php
             $sql = "SELECT main_menu, main_menu_price FROM stores WHERE id={$_GET['store_id']}";
             $result = mysqli_query($conn, $sql);
             $main_menu = mysqli_fetch_array($result);
              ?>
-            <input type="text" name="main_menu" value="<?=$main_menu['main_menu']?>"><div style="float:right;"><input type="text" name="main_menu_price" value="<?=$main_menu['main_menu_price']?>">원</div><br>
+            <b>대표메뉴: </b><input type="text" name="main_menu" value="<?=$main_menu['main_menu']?>"><div style="float:right;"><input type="text" name="main_menu_price" value="<?=$main_menu['main_menu_price']?>">원</div><br>
           </div>
-          <div>
+          <div class="text">
             <?php
             $sql = "SELECT * FROM menus WHERE store_id={$_GET['store_id']} ORDER BY price";
             $result = mysqli_query($conn, $sql);
@@ -55,7 +55,7 @@ $conn = mysqli_connect(
               $arr_price[$i] = $row['price'];
               $arr_id[$i] = $row['id'];
               echo "<input type=\"hidden\" name=\"menu_id[]\" value=\"{$arr_id[$i]}\">";
-              echo "<input type=\"text\" name=\"menu[]\" value=\"{$arr_menu[$i]}\"><input type=\"text\" name=\"price[]\" value=\"{$arr_price[$i]}\">원<br>";
+              echo "<input type=\"text\" name=\"menu[]\" value=\"{$arr_menu[$i]}\"><div style="float:right;"><input type=\"text\" name=\"price[]\" value=\"{$arr_price[$i]}\">원</div><br>";
               $i = $i + 1;
             }
             ?>
