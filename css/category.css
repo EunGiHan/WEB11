@@ -10,11 +10,12 @@
     border-radius: 10px;
 }
 .title{
-    width:50%;
-    padding-bottom:10px;
-    border-bottom: 3px solid black;
-    border-bottom-style: dotted;
-    margin-bottom:10px;
+    display:flex;
+    flex-direction: row;
+}
+.border{
+    border-bottom:4px;
+    border-bottom-style: dashed;
 }
 .btn1{
     width:60px; height:30px;
@@ -25,6 +26,9 @@
     border-radius:5px;
     border:1px solid black;
     text-align:center;
+}
+.dropdown{
+    margin-left:10px;
 }
 .add_store{
     width:40%;
@@ -38,11 +42,7 @@
 strong{
     font-size:30px;
 }
-.dropdown{
-    float:left;
-    margin-top:-38px;
-    margin-left:60px;
-}
+
 ul{
     font-size:10px;
 }
@@ -63,6 +63,7 @@ a{
     text-decoration:none !important ;
     color: black !important ;
 }
+  
   
   
   
