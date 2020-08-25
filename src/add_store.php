@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/category.css">
+    <link rel="stylesheet" href="../css/add_store.css">
+    <link rel="stylesheet" href="../css/responsive.css">
     <title>식당 추가</title>
   </head>
   <body>
