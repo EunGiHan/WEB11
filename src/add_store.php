@@ -14,6 +14,7 @@
       <div class="title">
         <strong style="font-size:20px;"><?="{$row['category']}"?></strong>
       </div><br>
+      <div class="border"></div><br>
       <form action="process_create_store.php" method="POST">
         <input type="hidden" name="category" value="<?=$_GET['id']?>">
         <div class="text">업체명<input type="text" name="name" placeholder = "업체명을 입력하세요." style="float:right;"required></div><br>
