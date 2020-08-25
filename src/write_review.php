@@ -28,11 +28,12 @@ $star = 0;
 <body>
   <div class="container">
       <div class="top">
-          <input type="button" class="btn" onclick="location.href='javascript:history.back()';" value="back">
-          <input type="button" class="btn1" onclick="location.href='../index.php';" value="home" >
+        <div style="text-align:center;"><a href="index.html"><b style="color:white; text-decoration:none;">INHA-POT</b></a></div>
+        <input type="button" class="btn1" onclick="location.href='javascript:history.back()';" value="back">
       </div>
       <div><h1><?=$name?></h1></div><br>
-      <div style="text-align: center; border-top: 1px solid gainsboro ;">별점을 선택하세요.</div><br>
+      <div class="border"></div><br>
+      <div style="text-align:center;">별점을 선택하세요.</div><br>
       <form action="process_create.php" method="POST">
       <div class="rating">
           <fieldset>

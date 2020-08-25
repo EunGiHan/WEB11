@@ -37,9 +37,9 @@ while($row = mysqli_fetch_array($result)){
 <body>
     <div class="container">
         <div class="top">
-            <input type="button" class="btn" onclick="location.href='javascript:history.back()';" value="back">
-            <input type="button" class="btn1" onclick="location.href='../index.php';" value="home">
-        </div>
+          <div style="text-align:center;"><a href="../index.php"><b style="color:white; text-decoration:none;">INHA-POT</b></a></div>
+          <input type="button" class="btn1" onclick="location.href='javascript:history.back()';" value="back">
+        </div><br>
         <div class="title">
             <b><?=$name?></b><br>
             <?php
