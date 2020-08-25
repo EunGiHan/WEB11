@@ -46,7 +46,7 @@ $article = array(
                     <div class="text">주소<input type="text" name="address" style="float:right;" value="<?=$article['address']?>"></div><br>
                     <div class="text">영업시간<input type="text" name="hour" style="float:right;" value="<?=$article['hour']?>"></div><br>
                     <div class="text">전화번호<input type="text" name="tel" style="float:right;" value="<?=$article['tel']?>"></div><br>
-                    <p><input type="submit" name="리뷰 수정"></p>
+                    <p><input type="submit" name="리뷰 수정" style="text-align: right;margin: 20px;"></p>
             </form>
         </div>
     </body>
