@@ -58,7 +58,7 @@ while($row = mysqli_fetch_array($result)){
         </div>
         <table>
           <?php
-          if(isset($_SESSION)){
+          if(isset($_SESSION['name'])) {
           ?>
             <td id="share"><a id="kakao-link-btn" href="javascript:sendLink()">카카오톡으로 공유하기</a></td>
             <script type="text/javascript">

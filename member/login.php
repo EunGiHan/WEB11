@@ -14,6 +14,7 @@ $conn = mysqli_connect(
         <meta charset="utf-8">
         <title>로그인</title>
         <link rel="stylesheet" href="../css/login.css">
+        <link rel="stylesheet" href="../css/responsive.css">
     </head>
 
     <body>

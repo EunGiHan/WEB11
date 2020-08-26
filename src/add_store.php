@@ -1,3 +1,16 @@
+<?php
+$conn = mysqli_connect(
+  'localhost',
+  'inhapot',
+  'inha8302#11',
+  'inhapot'
+);
+
+$sql = "SELECT * FROM categories WHERE id = {$_GET['id']}";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -9,8 +22,8 @@
   <body>
     <div class="container">
       <div class="top">
-        <div style="text-align:center;"><a href="index.html"><b style="color:white; text-decoration:none;">INHA-POT</b></a></div>
-        <input type="button" class="btn1" onclick="location.href='javascript:history.back()';" value="back">
+        <div style="text-align:center;"><a href="../index.php"><b style="color:white; text-decoration:none;">INHA-POT</b></a></div>
+        <input type="button" class="btn1" onclick="location.href='store_list.php?id=<?=$row['id']?>';" value="back">
       </div><br>
       <div class="title">
         <strong style="font-size:20px;"><?="{$row['category']}"?></strong>
