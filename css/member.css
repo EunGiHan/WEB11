@@ -2,7 +2,7 @@ body,form{
     margin:auto;
     text-align:center;
 }
-body{
+.contaniner{
     background-color: teal;
 }
 form{
@@ -10,7 +10,9 @@ form{
     margin-top:100px;
     background-color:gainsboro;
     border:5px solid whitesmoke;
-    
+}
+table{
+    margin:auto;
 }
 a{
     text-decoration:none;
