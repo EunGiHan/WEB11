@@ -61,7 +61,8 @@ td{
     border-bottom:1px solid salmon;
 }
 .text2{
-    height:55px;
+    overflow:hidden;
+    height:auto;
 }
 .text4{
     border-bottom:1px solid salmon;
