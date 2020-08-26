@@ -28,8 +28,8 @@ $star = 0;
 <body>
   <div class="container">
       <div class="top">
-        <div style="text-align:center;"><a href="index.html"><b style="color:white; text-decoration:none;">INHA-POT</b></a></div>
-        <input type="button" class="btn1" onclick="location.href='javascript:history.back()';" value="back">
+        <div style="text-align:center;"><a href="../index.php" style="text-decoration: none;"><b style="color:white;">INHA-POT</b></a></div>
+        <input type="button" class="btn1" onclick="location.href='store_page.php?id=<?=$_GET['store_id']?>';" value="back">
       </div>
       <div><h1><?=$name?></h1></div><br>
       <div class="border"></div><br>

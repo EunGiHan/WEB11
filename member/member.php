@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>회원가입</title>
     <script>
     function checkid() {
@@ -18,9 +18,11 @@
     }
     </script>
     <link rel="stylesheet" href="../css/member.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 </head>
 
 <body>
+  <div class="container">
     <form action="./member_ok.php" method="POST">
         <a href="../index.php">
             <h1 style="font-size:50px;">INHA-POT</h1>
@@ -56,6 +58,7 @@
         <button type="submit" id="btn">회원가입</button>
     </form>
     <iframe src="" id="ifrm1" scrolling=no frameborder=no width=0 height=0 name="ifrm1"></iframe>
+  </div>
 </body>
 
 </html>

@@ -30,7 +30,7 @@ $name = mysqli_fetch_array($result);
   <div class="container">
       <div class="top">
         <div style="text-align:center;"><a href="../index.php"><b style="color:white; text-decoration:none;">INHA-POT</b></a></div>
-        <input type="button" class="btn1" onclick="location.href='javascript:history.back()';" value="back">
+        <input type="button" class="btn1" onclick="location.href='store_page.php?store_id=<?=$_GET['store_id']?>';" value="back">
       </div><br>
       <div class="title">
           <b style="font-size:20px;"><?=$name['name']?></b>

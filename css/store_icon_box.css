@@ -1,9 +1,0 @@
-.box-gray {
-	/* NOTE: 홈 페이지 아이콘 박스 */
-  margin:0 0 25px;
-  overflow:hidden; /* NOTE: 얘 뭔 소리야 */
-  padding:20px;
-  background-color:#dddddd;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-}

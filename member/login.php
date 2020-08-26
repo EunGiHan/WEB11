@@ -17,7 +17,7 @@ $conn = mysqli_connect(
         <link rel="stylesheet" href="../css/responsive.css">
     </head>
 
-    <body>
+    <body class="container">
       <?php
         echo "
         <div class='login_box'>

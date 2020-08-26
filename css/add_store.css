@@ -33,3 +33,6 @@ a{
     text-decoration:none !important;
     color: black;
 }
+strong{
+  font-size:30px;
+}

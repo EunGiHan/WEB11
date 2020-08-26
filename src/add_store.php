@@ -22,11 +22,11 @@ $row = mysqli_fetch_array($result);
   <body>
     <div class="container">
       <div class="top">
-        <div style="text-align:center;"><a href="../index.php"><b style="color:white; text-decoration:none;">INHA-POT</b></a></div>
+        <div style="text-align:center;"><a href="../index.php" style="text-decoration: none;"><b style="color:white;">INHA-POT</b></a></div>
         <input type="button" class="btn1" onclick="location.href='store_list.php?id=<?=$row['id']?>';" value="back">
       </div><br>
       <div class="title">
-        <strong style="font-size:20px;"><?="{$row['category']}"?></strong>
+        <strong><?="{$row['category']}"?></strong>
       </div><br>
       <div class="border"></div><br>
       <form action="process_create_store.php" method="POST">

@@ -33,61 +33,67 @@ $conn = mysqli_connect(
           echo '<a href="./member/login.php"><i class="fas fa-user-alt" style="float:right; margin-top:-15px; margin-right:15px;">로그인</i></a>';
         }
         ?>
-
-
       </div>
-        <div class="icon_box">
-            <?php
-      echo "<div><a href=\"./src/store_list.php?id=1\"><i class=\"flaticon-bibimbap\"></i></a><br>한식</div>
-            <div><a href=\"./src/store_list.php?id=2\"><i class=\"flaticon-tuna\"></i></a><br>일식</div>
-            <div><a href=\"./src/store_list.php?id=3\"><i class=\"flaticon-dumpling\"></i></a><br>중식</div>
-            <div><a href=\"./src/store_list.php?id=4\"><i class=\"flaticon-pizza\"></i></a><br>양식</div>
-            <div><a href=\"./src/store_list.php?id=5\"><i class=\"flaticon-fish-cake\"></i></a><br>분식</div>
-            <div><a href=\"./src/store_list.php?id=6\"><i class=\"flaticon-restaurant\"></i></a><br>그 외</div>
-            <div><a href=\"./src/store_list.php?id=7\"><i class=\"flaticon-coffee-beans\"></i></a><br>카페</div>
-            <div><a href=\"./src/store_list.php?id=8\"><i class=\"far fa-heart fa-3x\"style=\"margin-top:3px;\"></i></a><br><p style=\"margin-top:5px;\">데이트</p></div>
-            <div><a href=\"./src/store_list.php?id=9\"><i class=\"flaticon-eat\"></i></a><br>혼밥</div>
-            <div><a href=\"./src/store_list.php?id=10\"><i class=\"flaticon-clock\"></i></a><br>24시간</div>
-      ";
 
-      ?>
-        </div>
-
-        <div id="review"><b>최근 등록된 리뷰</b></div>
-
+      <div class="icon_box">
         <?php
-            $sql = "SELECT *, reviews.star as r_star FROM reviews LEFT JOIN stores ON reviews.store_id = stores.id ORDER BY created DESC limit 3";
-            $result = mysqli_query($conn, $sql);
-            while($row = mysqli_fetch_array($result)){
-              $top = "<div class=\"reviewbox\">";
-              echo $top;
+          echo "<div><a href=\"./src/store_list.php?id=1\"><i class=\"flaticon-bibimbap\"></i></a><br>한식</div>
+                <div><a href=\"./src/store_list.php?id=2\"><i class=\"flaticon-tuna\"></i></a><br>일식</div>
+                <div><a href=\"./src/store_list.php?id=3\"><i class=\"flaticon-dumpling\"></i></a><br>중식</div>
+                <div><a href=\"./src/store_list.php?id=4\"><i class=\"flaticon-pizza\"></i></a><br>양식</div>
+                <div><a href=\"./src/store_list.php?id=5\"><i class=\"flaticon-fish-cake\"></i></a><br>분식</div>
+                <div><a href=\"./src/store_list.php?id=6\"><i class=\"flaticon-restaurant\"></i></a><br>그 외</div>
+                <div><a href=\"./src/store_list.php?id=7\"><i class=\"flaticon-coffee-beans\"></i></a><br>카페</div>
+                <div><a href=\"./src/store_list.php?id=8\"><i class=\"far fa-heart fa-3x\"style=\"margin-top:3px;\"></i></a><br><p style=\"margin-top:5px;\">데이트</p></div>
+                <div><a href=\"./src/store_list.php?id=9\"><i class=\"flaticon-eat\"></i></a><br>혼밥</div>
+                <div><a href=\"./src/store_list.php?id=10\"><i class=\"flaticon-clock\"></i></a><br>24시간</div>
+          ";
 
-              $name = "<div><a href=\"./src/store_page.php?store_id={$row['store_id']}\">"."{$row['name']}"."</a></div>";
-              echo $name;
+        ?>
+      </div>
 
-              $rating = "<div class=\"rating\">";
-              echo $rating;
+      <div id="review"><b>최근 등록된 리뷰</b></div>
+      <div class="reviewbox" style="overflow:hidden;">
+        <?php
+          $sql = "SELECT *, reviews.star as r_star FROM reviews LEFT JOIN stores ON reviews.store_id = stores.id ORDER BY created DESC limit 3";
+          $result = mysqli_query($conn, $sql);
 
-              $star = $row['r_star'];
-              for($i=5; $i>0; $i--){
-                if($star > 0){
-                  echo "<span class=\"fa fa-star checked\"></span>";
-                  $star = $star - 1;
-                } else{
-                  echo "<span class=\"fa fa-star\"></span>";
-                }
+          while($row = mysqli_fetch_array($result)){
+            $class_review = "<div class='review'>";
+            echo $class_review;
+
+            $class_rating = "<div class=\"rating\">";
+            echo $class_rating;
+
+            // 카테고리, 식당 이름 출력
+            // $sql2 = "SELECT * FROM categories WHERE id={$row['category']}";
+            // $result2 = mysqli_query($conn, $sql);
+            // $row2 = mysqli_fetch_array($result2);
+            // $category_name = $row2['category'];
+            echo "<div style='float:left'>
+                    <a href=\"./src/store_page.php?store_id={$row['store_id']}\">"."{$row['name']}".
+                    "</a></div><br>";
+
+            // 각 리뷰의 별점 출력
+            $star = $row['star'];
+            for($i=5; $i>0; $i--){
+              if($star > 0){
+                echo "<span class=\"fa fa-star checked\"></span>";
+                $star = $star - 1;
+              } else{
+                echo "<span class=\"fa fa-star\"></span>";
               }
-              $date = "<div class=\"date\">"."{$row['created']}"."</div>";
-              $text = "<div class=\"text\">"."{$row['review']}"."</div>";
-              echo $date;
-              echo $text;
             }
-            ?>
 
+            // 각 리뷰의 리뷰(comment) 출력
+            echo "<div class=\"comment\">"."{$row['review']}"."</div></div>";
 
-
-    </div>
-    </div>
+            // 리뷰 생성시간 출력
+            echo "<div class=\"date\">"."{$row['created']}"."</div>";
+            echo "</div>";
+            }
+          ?>
+      </div>
     </div>
 </body>
 

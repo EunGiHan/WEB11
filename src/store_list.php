@@ -66,8 +66,7 @@ $row = mysqli_fetch_array($result);
         echo "<div class=\"place\">";
         $name_menu = "
         <div>
-            <b style=\"font-size:20px;\"><a href=\"store_page.php?store_id={$row['id']}\">"."{$row['name']}"."</a></b><br>
-            <div class=\"menu\">"."{$row['main_menu']}"."</div>
+            <b style=\"font-size:20px;\"><a href=\"store_page.php?store_id={$row['id']}\">"."{$row['name']}"."</a></b>
         </div>
         ";
         echo $name_menu;
@@ -84,7 +83,7 @@ $row = mysqli_fetch_array($result);
             echo "<span class=\"fa fa-star\"></span>";
           }
         }
-        echo "리뷰 "."{$row['review_amount']}"."건<br><br>"."{$row['main_menu_price']}"."원</div></div>";
+        echo "리뷰 "."{$row['review_amount']}"."건<br><br>"."{$row['main_menu']}"." | "."{$row['main_menu_price']}"."원</div></div>";
       }
        ?>
 
