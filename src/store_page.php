@@ -41,7 +41,7 @@ while($row = mysqli_fetch_array($result)){
           <input type="button" class="btn1" onclick="location.href='javascript:history.back()';" value="back">
         </div><br>
         <div class="title">
-            <b><?=$name?></b><br>
+            <b class="name"><?=$name?></b><br>
             <?php
             $star_origin = $star;
             for($i=5; $i>0; $i--){
@@ -57,6 +57,9 @@ while($row = mysqli_fetch_array($result)){
            ?>
         </div>
         <table>
+          <?php
+          if(isset($_SESSION)){
+          ?>
             <td id="share"><a id="kakao-link-btn" href="javascript:sendLink()">카카오톡으로 공유하기</a></td>
             <script type="text/javascript">
             Kakao.init('2d9e02bbf3e491073a84b72ed8376f1f');
@@ -73,20 +76,44 @@ while($row = mysqli_fetch_array($result)){
             }
             </script>
             <td><a href="../src/write_review.php?store_id=<?=$_GET['store_id']?>">리뷰 작성하기</td>
+              <?php
+            } else{ echo '
+              <td id="share"><a id="kakao-link-btn" href="javascript:sendLink()">카카오톡으로 공유하기</a></td>
+              <script type="text/javascript">
+              Kakao.init(\'2d9e02bbf3e491073a84b72ed8376f1f\');
+
+              function sendLink() {
+                  Kakao.Link.sendCustom({
+                      templateId: 34900,
+                      templateArgs: {
+                          title: \'INHA-POT\',
+                          description: "해당 페이지 URL",
+                      },
+                  })
+              }
+              </script>';
+            }
+               ?>
         </table>
         <div class="information">
             <strong>정보</strong>
             <a href=#none id="show"
-                onclick="if(hide1.style.display=='none') {hide1.style.display='';show.innerText='▲'} else {hide1.style.display='none';show.innerText='▶'}">▶</a>
+                onclick="if(hide1.style.display=='none') {hide1.style.display='';show.innerText='▲'}
+                          else {hide1.style.display='none';show.innerText='▶'}">
+                ▶
+            </a>
             <div id="hide1" style="display: none">
-                <?php
+              <?php
               echo "<div class=\"text1\">주소<div class=\"address\">"."{$row['address']}"."</div></div>";
               echo "<div class=\"text2\">영업시간<div class=\"time\">"."{$row['hour']}"."</div></div>";
-              echo "<div class=\"text3\">전화번호<div id=\"plus\">"."{$row['tel']}"."</div></div>";
+              echo "<div class=\"text3\">전화번호<div id=\"plus\">"."{$row['tel']}"."</div></div><br>";
             }
              ?>
-                <div style="text-align: center;"><a href="update_info.php?store_id=<?=$_GET['store_id']?>">정보 수정
-                        제안하기</a></div>
+                <div style="text-align: center;">
+                  <a href="update_info.php?store_id=<?=$_GET['store_id']?>">
+                    -정보 수정 제안하기-
+                  </a>
+                </div>
             </div>
         </div>
         <div class="menubox">
@@ -96,25 +123,26 @@ while($row = mysqli_fetch_array($result)){
             $sql = "SELECT main_menu, main_menu_price FROM stores WHERE id={$_GET['store_id']}";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result);
-            echo "[대표 메뉴]    "."{$row['main_menu']}"."  ---  "."{$row['main_menu_price']}"."원<br>";
+            echo "<div style='float:left'>[대표 메뉴]"."{$row['main_menu']}</div>"."      "."<div style='display: inline-block; float: right'>{$row['main_menu_price']}"."원</div><br>";
              ?>
-            </div>
-            <div id="show2">
-                <a href=#none id="show2"
-                    onclick="if(hide2.style.display=='none') {hide2.style.display='';show2.innerText='접기'} else {hide2.style.display='none';show2.innerText='다른 메뉴 더보기'}">
-                    다른 메뉴 더보기
-                </a>
-            </div>
+            <br>
+            <a href=#none id="show2"
+                onclick="if(hide2.style.display=='none') {hide2.style.display='';show2.innerText='-접기-'}
+                          else {hide2.style.display='none';show2.innerText='-다른 메뉴 더보기-'}">
+                -다른 메뉴 더보기-
+            </a>
+            <br><br>
             <div id="hide2" style="display: none">
                 <?php
               $sql = "SELECT * FROM menus WHERE store_id={$_GET['store_id']} ORDER BY price DESC";
               $result = mysqli_query($conn, $sql);
               while($row = mysqli_fetch_array($result)){
-                echo "{$row['menu']}"."---"."{$row['price']}"."원<br>";
+                echo "<div style='float:left'>"."{$row['menu']}</div>"."      "."<div style='display: inline-block; float: right'>{$row['price']}"."원</div><br>";
               }
               ?>
-                <a href="update_menu.php?store_id=<?=$_GET['store_id']?>">메뉴 정보 수정 제안하기</a>
+                <br><a href="update_menu.php?store_id=<?=$_GET['store_id']?>">-메뉴 정보 수정 제안하기-</a>
             </div>
+          </div>
         </div>
         <div class="reviewbox">
             <?php

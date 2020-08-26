@@ -9,23 +9,23 @@
     border-radius: 10px;
 }
 .btn1{
-    width:60px; height:30px;
+    width:60px; height:20px;
     float:left;
     margin-left:10px;
-    margin-top:-27px;
+    margin-top:-21px;
     font-size:15px;
     border-radius:5px;
     border:1px solid black;
     text-align:center;
 }
-.btn1,#show,.address,.time,#plus{
+#show,.address,.time,#plus{
     float:right;
 }
 .title{
     text-align:center;
     font-size:35px;
 }
-b{
+.name{
     font-size:40px;
 }
 .checked {
@@ -42,11 +42,14 @@ td{
 #share{
     width:50%;
 }
-.information,.menubox{
-    border-bottom:1px solid black;
+.information{
+  margin-top:10px;
+  border-top:1px solid black;
+  /* border-bottom:1px solid black; */
 }
-.infromation,.menubox,.reviewbox{
-    margin-top:10px;
+.menubox{
+    border-top:1px solid black;
+    border-bottom:1px solid black;
 }
 #show,#show2{
     text-decoration: none;
@@ -64,7 +67,8 @@ td{
 }
 .menu,#show2,#hide2{
     text-align:center;
-}.review{
+}
+.review{
     width: 100%; height: 110px;
     background-color: gainsboro;
     /*display:grid;
@@ -88,4 +92,10 @@ strong{
 a{
     text-decoration:none !important;
     color: black;
+}
+.menu_name{
+  float: left;
+}
+.menu_price{
+  float: right;
 }
