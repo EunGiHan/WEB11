@@ -14,16 +14,17 @@ $article = array(
   'tel' => htmlspecialchars($_POST['tel'])
 );
 
+//수정된 내용대로 식당 DB(stores) 수정
 $sql = "
-    UPDATE stores SET address='{$article['address']}', hour='{$article['hour']}', tel='{$article['tel']}' WHERE id = {$article['store_id']}";
+    UPDATE stores SET address='{$article['address']}', hour='{$article['hour']}',
+                              tel='{$article['tel']}' WHERE id = {$article['store_id']}";
 $result = mysqli_query($conn, $sql);
 
 if($result === false){
   echo "정보를 수정하는 과정에서 문제가 생겼습니다. 관리자에게 문의해주세요";
   echo mysqli_error($conn);
 }else{
-  // $url = 'store_page.php?store_id='.$filtered['store_id'];
-  // header("Location: ".$url);
-  header("Location: ../index.php");
+  $url = 'store_page.php?store_id='.$filtered['store_id'];
+  header("Location: ".$url);
 }
 ?>

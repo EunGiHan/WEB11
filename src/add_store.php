@@ -25,10 +25,13 @@ $row = mysqli_fetch_array($result);
         <div style="text-align:center;"><a href="../index.php" style="text-decoration: none;"><b style="color:white;">INHA-POT</b></a></div>
         <input type="button" class="btn1" onclick="location.href='store_list.php?id=<?=$row['id']?>';" value="back">
       </div><br>
+
       <div class="title">
         <strong><?="{$row['category']}"?></strong>
       </div><br>
+
       <div class="border"></div><br>
+
       <form action="process_create_store.php" method="POST">
         <input type="hidden" name="category" value="<?=$_GET['id']?>">
         <div class="text">업체명<input type="text" name="name" placeholder = "업체명을 입력하세요." style="float:right;"required></div><br>

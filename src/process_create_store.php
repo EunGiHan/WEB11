@@ -16,15 +16,18 @@ $filtered = array(
   'tel'=>mysqli_real_escape_string($conn, $_POST['tel'])
 );
 
+// 입력받은 식당 정보를 DB에 저장
 $sql = "
     INSERT INTO stores (category, name, main_menu, main_menu_price, address, hour, tel)
-    VALUES('{$filtered['category']}', '{$filtered['name']}', '{$filtered['main_menu']}', '{$filtered['main_menu_price']}', '{$filtered['address']}', '{$filtered['hour']}', '{$filtered['tel']}')";
+    VALUES('{$filtered['category']}', '{$filtered['name']}', '{$filtered['main_menu']}',
+     '{$filtered['main_menu_price']}', '{$filtered['address']}', '{$filtered['hour']}', '{$filtered['tel']}')";
 $result = mysqli_query($conn, $sql);
 
 if($result === false){
   echo "식당을 추가하는 과정에서 문제가 생겼습니다. 관리자에게 문의해주세요";
   error_log(mysqli_error($conn));
 }else{
-  header("Location: ../index.php");
+  $url = 'store_list.php?id='.$_POST['category'];
+  header("Location: ".$url);
 }
 ?>

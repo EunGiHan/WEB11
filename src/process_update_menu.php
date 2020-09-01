@@ -13,12 +13,14 @@ $article = array(
   'main_menu_price' => htmlspecialchars($_POST['main_menu_price'])
 );
 
+// 메인메뉴는 수정된 내용대로 식당 DB(stores) 수정
 $sql = "
   UPDATE stores
   SET main_menu='{$article['main_menu']}', main_menu_price='{$article['main_menu_price']}'
   WHERE id = {$article['id']}";
 $result = mysqli_query($conn, $sql);
 
+// 그 외 메뉴는 수정된 내용대로 메뉴 DB(menus) 수정
 $arr_menu = isset($_POST['menu']) ? $_POST['menu'] : '';
 $arr_price = isset($_POST['price']) ? $_POST['price'] : '';
 $arr_id = isset($_POST['menu_id']) ? $_POST['menu_id'] : '';
@@ -36,8 +38,7 @@ if($result === false){
   echo "메뉴를 수정하는 과정에서 문제가 생겼습니다. 관리자에게 문의해주세요";
   error_log(mysqli_error($conn));
 } else{
-  // $url = 'store_page.php?store_id='.$filtered['store_id'];
-  // header("Location: ".$url);
-  header("Location: ../index.php");
+  $url = 'store_page.php?store_id='.$article['id'];
+  header("Location: ".$url);
 }
 ?>

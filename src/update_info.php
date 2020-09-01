@@ -13,11 +13,11 @@ $article = array(
   'main_menu'=>htmlspecialchars($row['main_menu']),
   'main_menu_price' => htmlspecialchars($row['main_menu_price']),
   'address' => htmlspecialchars($row['address']),
-  'hour' => htmlspecialchars($row['hour']), // 만약에 입력값에 줄바꿈 있다면?
+  'hour' => htmlspecialchars($row['hour']),
   'tel'=> htmlspecialchars($row['tel'])
 );
-
 ?>
+
 <!DOCTYPE html>
 <html>
 
