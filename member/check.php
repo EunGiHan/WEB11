@@ -26,5 +26,5 @@
         ?>
         <button value="닫기" onclick="window.close()">닫기</button>
         <form action="member_ok.php">
-            <input type="hidden" name="checked_id" value="$checked_id">
+            <input type="hidden" name="checked_id" value="<?=$checked_id?>">
         </form>

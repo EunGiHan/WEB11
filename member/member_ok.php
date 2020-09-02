@@ -12,7 +12,7 @@ $conn = mysqli_connect(
         echo '<script charset="utf-8">alert("아이디 중복검사를 해야 합니다."); history.back();</script>';
     }
     // 아이디 중복검사 결과가 중복된 아이디였다면?
-    else if($_REQUEST['checked_id'] == 0){
+    else if($_REQUEST['checked_id'] === 0){
         echo '<script charset="utf-8">alert("아이디가 중복됩니다."); history.back();</script>';
     }
 
